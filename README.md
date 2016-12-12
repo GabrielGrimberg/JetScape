@@ -1,1 +1,35 @@
-# OOP Assignment2 Game
+# Making a Game Assingment
+A repository for my second OOP assignment in second year.
+
+#### Brief
+- To be added...
+
+#### My Idea
+- To be added...
+
+#### Update: To Be Added
+- To be added...
+
+#### Update: To Be Added
+- To be added...
+
+#### Testing
+- To be added...
+
+#### Evaluation
+- To be added...
+
+#### Key Features
+- To be added...
+
+#### Video(s)
+- To be added...
+
+#### Credits
+- To be added...
+
+##### Images
+- To be added...
+
+##### Audio
+- To be added...
