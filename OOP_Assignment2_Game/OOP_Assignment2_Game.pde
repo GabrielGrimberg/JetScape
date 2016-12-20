@@ -11,7 +11,8 @@
 
 void setup()
 {
-  
+  //Size of screen.
+  size(1000,500);
 }
 
 void draw()
