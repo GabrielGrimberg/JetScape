@@ -14,4 +14,34 @@ class MenuSelect
     this.boxCurve = boxCurve;
   }
   
+  void selectDisplay1()
+  {
+    rectMode(RADIUS);
+    
+    if(mouseX > menuXPos - menuYPos &&  //If statement to check
+       mouseX < menuXPos + menuYPos &&  //If the mouse is anywhere
+       mouseY > menuXPos - menuYPos &&  //near the box.
+       mouseY < menuXPos + menuYPos)    
+       
+    {
+      mouseStartButton = true; //Set true, continue to mousePressed()
+    
+    if(mousePressedStartButton == false) 
+    { 
+      fill(0,255,0);
+    } 
+  } 
+  else 
+  {
+    stroke(153);
+    fill(153);
+    
+    mouseStartButton = false;
+  }
+  
+  //Drawing the box.
+  rect(menuXPos, menuYPos, boxSize, boxSize, boxCurve);
+  fill(0);
+  }
+  
 }

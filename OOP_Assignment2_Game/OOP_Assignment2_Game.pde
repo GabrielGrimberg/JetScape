@@ -9,6 +9,15 @@
 *                                        *
 ******************************************/
 
+/* Classes */
+
+
+/* Global Variables */
+
+/* Boolean Variables for MenuButtons Class */
+boolean mouseStartButton = false; //Variable to check if the mouse is on the box.
+boolean mousePressedStartButton = false; //Variable to highlight if box is pressed.
+
 void setup()
 {
   //Size of screen.
