@@ -1,4 +1,4 @@
-class MenuSelect
+class MenuButtons
 {
   /* Variables for Start Menu */
   float menuXPos; //Variable for the X Position.
@@ -6,7 +6,7 @@ class MenuSelect
   int boxSize = 100; //Variable for the size of the box
   int boxCurve = 50; //Variable for the curve of the box.
   
-  MenuSelect(float boxXPoint, float boxYPoint, int sizeOfbox, int boxCurve)
+  MenuButtons(float boxXPoint, float boxYPoint, int sizeOfbox, int boxCurve)
   {
     this.menuXPos = boxXPoint;
     this.menuYPos = boxYPoint;
@@ -14,7 +14,7 @@ class MenuSelect
     this.boxCurve = boxCurve;
   }
   
-  void selectDisplay1()
+  void StartButton()
   {
     rectMode(RADIUS);
     
@@ -37,6 +37,36 @@ class MenuSelect
     fill(153);
     
     mouseStartButton = false;
+  }
+  
+  //Drawing the box.
+  rect(menuXPos, menuYPos, boxSize, boxSize, boxCurve);
+  fill(0);
+  }
+  
+  void EndButton()
+  {
+    rectMode(RADIUS);
+    
+    if(mouseX > menuXPos - menuYPos &&  //If statement to check
+       mouseX < menuXPos + menuYPos &&  //If the mouse is anywhere
+       mouseY > menuXPos - menuYPos &&  //near the box.
+       mouseY < menuXPos + menuYPos)    
+       
+    {
+      mouseEndButton = true; //Set true, continue to mousePressed()
+    
+    if(mousePressedEndButton == false) 
+    { 
+      fill(0,255,0);
+    } 
+  } 
+  else 
+  {
+    stroke(153);
+    fill(153);
+    
+    mouseEndButton = false;
   }
   
   //Drawing the box.
