@@ -13,8 +13,9 @@
   - Classes -
 */
 //Creating Objects for the Menu.
-MenuButtons StartGame;
-MenuButtons EndGame;
+MenuButtons StartGame; //Start Game Button.
+MenuButtons EndGame;   //End Game Button.
+MenuButtons Settings;  //Settings Button.
 
 /* 
   - Global Variables -
@@ -26,24 +27,28 @@ boolean mousePressedStartButton = false; //Variable to highlight if box is press
 boolean mouseEndButton = false; //Variable to check if the mouse is on the box.
 boolean mousePressedEndButton = false; //Variable to highlight if box is pressed.
 
+boolean mouseSettingButton = false; //Variable to check if the mouse is on the box.
+boolean mousePSettingButton = false; //Variable to highlight if box is pressed.
+
 void setup()
 {
   //Size of screen.
-  size(1000,500);
+  size(1200,600);
   
   /* Creating new Objects for MenuButtons */
-  StartGame = new MenuButtons(width/3.0, height/2.3, 100, 50);
-  EndGame = new MenuButtons(width/1.5, height/2.3, 100, 50);
+  StartGame = new MenuButtons(width / 2, 150, 50, 0);
+  EndGame = new MenuButtons(width / 2, 300, 50, 0);
+  Settings = new MenuButtons(width / 2, 450, 50, 0);
 }
 
 void draw()
 {
-  MainMenu();
-  
+  MainMenu(); 
 }
 
 void MainMenu()
 {
   StartGame.StartButton();
   EndGame.EndButton(); 
+  Settings.SettingsButton();
 }

@@ -40,7 +40,7 @@ class MenuButtons
   }
   
   //Drawing the box.
-  rect(menuXPos, menuYPos, boxSize, boxSize, boxCurve);
+  rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
   fill(0);
   }
   
@@ -70,7 +70,37 @@ class MenuButtons
   }
   
   //Drawing the box.
-  rect(menuXPos, menuYPos, boxSize, boxSize, boxCurve);
+  rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
+  fill(0);
+  }
+  
+  void SettingsButton()
+  {
+    rectMode(RADIUS);
+    
+    if(mouseX > menuXPos - menuYPos &&  //If statement to check
+       mouseX < menuXPos + menuYPos &&  //If the mouse is anywhere
+       mouseY > menuXPos - menuYPos &&  //near the box.
+       mouseY < menuXPos + menuYPos)    
+       
+    {
+      mouseSettingButton = true; //Set true, continue to mousePressed()
+    
+    if(mousePSettingButton == false) 
+    { 
+      fill(0,255,0);
+    } 
+  } 
+  else 
+  {
+    stroke(153);
+    fill(153);
+    
+    mouseSettingButton = false;
+  }
+  
+  //Drawing the box.
+  rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
   fill(0);
   }
   
