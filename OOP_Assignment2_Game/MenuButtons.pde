@@ -18,10 +18,10 @@ class MenuButtons
   {
     rectMode(RADIUS);
     
-    if(mouseX > menuXPos - menuYPos &&  //If statement to check
-       mouseX < menuXPos + menuYPos &&  //If the mouse is anywhere
-       mouseY > menuXPos - menuYPos &&  //near the box.
-       mouseY < menuXPos + menuYPos)    
+    if(mouseX > menuXPos - boxSize &&  //If statement to check
+       mouseX < menuXPos + boxSize &&  //If the mouse is anywhere
+       mouseY > menuYPos - boxSize &&  //near the box.
+       mouseY < menuYPos + boxSize)       
        
     {
       mouseStartButton = true; //Set true, continue to mousePressed()
