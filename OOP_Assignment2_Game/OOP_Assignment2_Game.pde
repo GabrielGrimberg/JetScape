@@ -39,8 +39,8 @@ void setup()
   size(1200,600);
   
   /* Creating new Objects for MenuButtons */
-  StartGame = new MenuButtons(width / 2, 250, 50, 0);
-  EndGame = new MenuButtons(width / 2, 450, 50, 0);
+  StartGame = new MenuButtons(width / 2, 250, 50, 5);
+  EndGame = new MenuButtons(width / 2, 450, 50, 5);
   
   //Setting up the text.
   for(TextForm Amount : TextForm.values())
@@ -64,10 +64,18 @@ void MainMenu()
 {
   background(0);
   
+  if(frameCount / 30 % 2 == 0)
+  {
+    stroke(255);
+    textDisplay("Running Dangerously", TextForm.Biggest, 300, 75);
+  }
+  
+  //Start button with the start text.
   StartGame.StartButton();
   stroke(0);
   textDisplay("Start", TextForm.Big, 540, 230);
   
+  //End button with the end text.
   EndGame.StartButton();
   stroke(0);
   textDisplay("Quit", TextForm.Big, 560, 430);
