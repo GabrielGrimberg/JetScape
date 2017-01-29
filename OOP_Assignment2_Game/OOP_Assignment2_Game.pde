@@ -28,7 +28,7 @@ void setup()
   size(1200,600);
   
   /* Creating new Objects for MenuButtons */
-  StartGame = new MenuButtons(width / 2, 150, 50, 0);
+  StartGame = new MenuButtons(width / 2, 250, 50, 0);
 }
 
 void draw()
