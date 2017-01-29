@@ -13,7 +13,8 @@
   - Classes -
 */
 //Creating Objects for the Menu.
-MenuButtons StartGame; //Start Game Button.
+MenuButtons StartGame; //Button to start game.
+MenuButtons EndGame; //Button to end game.
 
 /* 
   - Global Variables -
@@ -29,6 +30,7 @@ void setup()
   
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 0);
+  EndGame = new MenuButtons(width / 2, 450, 50, 0);
 }
 
 void draw()
@@ -39,4 +41,5 @@ void draw()
 void MainMenu()
 {
   StartGame.StartButton();
+  EndGame.StartButton();
 }
