@@ -43,4 +43,34 @@ class MenuButtons
   rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
   fill(0);
   }
+  
+  void EndButton()
+  {
+    rectMode(RADIUS);
+    
+    if(mouseX > menuXPos - boxSize &&  //If statement to check
+       mouseX < menuXPos + boxSize &&  //If the mouse is anywhere
+       mouseY > menuYPos - boxSize &&  //near the box.
+       mouseY < menuYPos + boxSize)       
+       
+    {
+      msbtnEnd = true; //Set true, continue to mousePressed()
+    
+    if(mscbtnEnd == false) 
+    { 
+      fill(0,255,0);
+    } 
+  } 
+  else 
+  {
+    stroke(153);
+    fill(153);
+    
+    msbtnEnd = false;
+  }
+  
+  //Drawing the box.
+  rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
+  fill(0);
+  }
 }

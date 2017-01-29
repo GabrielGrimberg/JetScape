@@ -33,6 +33,9 @@ MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 boolean mouseStartButton = false; //Variable to check if the mouse is on the box.
 boolean mousePressedStartButton = false; //Variable to highlight if box is pressed.
 
+boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
+boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
+
 void setup()
 {
   //Size of screen.
@@ -53,6 +56,11 @@ void draw()
 {
   MainMenu();
   
+}
+
+void mousePressed()
+{
+  quitClicked();
 }
 
 void textDisplay(String text, TextForm size, int x, int y)
@@ -76,7 +84,21 @@ void MainMenu()
   textDisplay("Start", TextForm.Big, 540, 230);
   
   //End button with the end text.
-  EndGame.StartButton();
+  EndGame.EndButton();
   stroke(0);
   textDisplay("Quit", TextForm.Big, 560, 430);
+}
+
+void quitClicked()
+{
+  if(msbtnEnd == true) //If true
+  {     
+    mscbtnEnd = true; //Set variable to true
+    fill(255, 255, 255); //To highlight the box.
+    exit(); //Terminating the program
+  } 
+  else 
+  {
+    mscbtnEnd = false; //If not, set to false.
+  }
 }
