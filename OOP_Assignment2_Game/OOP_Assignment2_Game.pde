@@ -5,16 +5,26 @@
 *  Type: Assignment 2.                   *
 *  Language: Java (Processing).          *
 *  Start Date: 9th of December 2016.     *
-*  Due Date: 5th of February 2017.       *
+*  Due Date: 7th of February 2017.       *
 *                                        *
 ******************************************/
+
+/*
+  - Imports -
+*/
+import de.ilu.movingletters.*; //Lib for the text format.
+import processing.sound.*; //Lib for the sound format.
+
 
 /* 
   - Classes -
 */
-//Creating Objects for the Menu.
+/*Creating Objects for the Menu. */
 MenuButtons StartGame; //Button to start game.
 MenuButtons EndGame; //Button to end game.
+
+/* Text Objects. */
+MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
 /* 
   - Global Variables -
