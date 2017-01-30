@@ -36,6 +36,10 @@ boolean mousePressedStartButton = false; //Variable to highlight if box is press
 boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
 boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
 
+//Gamestate Variable.
+int gameState = 0;
+
+
 void setup()
 {
   //Size of screen.
@@ -54,13 +58,25 @@ void setup()
 
 void draw()
 {
-  MainMenu();
+  switch(gameState)
+  {
+    case 0:
+      MainMenu();
+      break;
+  }
   
 }
 
 void mousePressed()
 {
   quitClicked();
+}
+
+void mouseReleased() 
+{
+  //If mouse released set it back to false.
+  mousePressedStartButton = false;
+  mscbtnEnd = false; 
 }
 
 void textDisplay(String text, TextForm size, int x, int y)
