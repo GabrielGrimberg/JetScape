@@ -92,6 +92,7 @@ void setup()
 void mousePressed()
 {
   quitClicked();
+  startClicked();
 }
 
 void mouseReleased() 
@@ -151,6 +152,20 @@ void quitClicked()
   }
 }
 
+void startClicked()
+{
+  if(mouseStartButton == true) //If true
+  {     
+    mousePressedStartButton = true; //Set variable to true
+    fill(255, 255, 255); //To highlight the box.
+    gameState = 1;
+  } 
+  else 
+  {
+    mouseStartButton = false; //If not, set to false.
+  }
+}
+
 void draw()
 {
   switch(gameState)
@@ -158,6 +173,11 @@ void draw()
     case 0:
       MainMenu();
       break;
+    case 1:
+      clear();
+      player.updatePlayer();
+      break;
+      
   }
   
 }
