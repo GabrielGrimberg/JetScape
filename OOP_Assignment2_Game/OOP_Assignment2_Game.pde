@@ -15,11 +15,9 @@
 import de.ilu.movingletters.*; //Lib for the text format.
 import processing.sound.*; //Lib for the sound format.
 
-
 /* 
   - Classes -
 */
-
 /*Creating Objects for the Menu. */
 MenuButtons StartGame; //Button to start game.
 MenuButtons EndGame; //Button to end game.
@@ -27,7 +25,6 @@ MenuButtons EndGame; //Button to end game.
 /*
   - New Objects -
 */
-
 /* Player Object */
 Player player = new Player(250,250,5,70,90);
 
@@ -40,7 +37,6 @@ boolean[] keys = new boolean[1000];
 /*
   - Images -
 */
-
 //Player sprite.
 PImage playerChar;
 
@@ -51,7 +47,6 @@ float []repeatBg = new float[2];
 /* 
   - Global Variables -
 */
-
 //Boolean Variables for MenuButtons Class.
 boolean mouseStartButton = false; //Variable to check if the mouse is on the box.
 boolean mousePressedStartButton = false; //Variable to highlight if box is pressed.
@@ -72,7 +67,7 @@ int gameState = 0;
 int speed = 5;
 int speedBg = 2; //Background speed.
 int innerSpeed = 2;
-int fgSpeed = 7; //Coin Speed.
+int speedc = 7; //Coin Speed.
 
 
 void setup()
@@ -97,6 +92,13 @@ void setup()
   
   //Player Character
   playerChar = loadImage("Player.png");
+  
+  //Loading the background image.
+  for(int i = 0; i < 2; i ++)
+  {
+    background[i] = loadImage("Background.png");
+    repeatBg[i] = width * i;
+  }
 }
 
 void mousePressed()
@@ -187,10 +189,8 @@ void movingBackground()
     if(repeatBg[i] + width <= 0)
     {
       repeatBg[i] = width;
-    }
-    
-  }
-    
+    }  
+  }   
 }
 
 void draw()
