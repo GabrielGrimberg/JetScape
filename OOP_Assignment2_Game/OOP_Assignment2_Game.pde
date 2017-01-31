@@ -28,6 +28,9 @@ MenuButtons EndGame; //Button to end game.
   - New Objects -
 */
 
+/* Player Object */
+Player player = new Player(250,250,5,70,90);
+
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
