@@ -34,6 +34,13 @@ MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 /* Keys Pressed. */
 boolean[] keys = new boolean[1000];
 
+/*
+  - Images -
+*/
+
+//Player sprite.
+PImage playerChar;
+
 /* 
   - Global Variables -
 */

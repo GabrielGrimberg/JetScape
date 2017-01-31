@@ -29,10 +29,9 @@ class Player
     {
       yPos = yPos - playerSpeed * 3f; //How fast the player goes up.
     }
+    
+    fill(255,255,0);
+    image(playerChar,xPos,yPos); //Player on Screen.
      
   }
-  
-  
-  
-  
 }
