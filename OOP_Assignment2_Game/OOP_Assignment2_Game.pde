@@ -70,6 +70,11 @@ void setup()
   //Size of screen.
   size(1200,600);
   
+  blockWidth = 50; //Limit to where player walks.
+  blockHeight = blockWidth;
+  blockYPos = height - blockWidth;
+  blockSpeed = 5;
+ 
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
@@ -78,7 +83,10 @@ void setup()
   for(TextForm Amount : TextForm.values())
   {
     Word[Amount.Pos] = new MovingLetters(this, Amount.Size, 0, 0);
-  } 
+  }
+  
+  //Player Character
+  playerChar = loadImage("Player.png");
 }
 
 void mousePressed()
