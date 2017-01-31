@@ -19,16 +19,25 @@ import processing.sound.*; //Lib for the sound format.
 /* 
   - Classes -
 */
+
 /*Creating Objects for the Menu. */
 MenuButtons StartGame; //Button to start game.
 MenuButtons EndGame; //Button to end game.
 
+/*
+  - New Objects -
+*/
+
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
+
+/* Keys Pressed. */
+boolean[] keys = new boolean[1000];
 
 /* 
   - Global Variables -
 */
+
 //Boolean Variables for MenuButtons Class.
 boolean mouseStartButton = false; //Variable to check if the mouse is on the box.
 boolean mousePressedStartButton = false; //Variable to highlight if box is pressed.
@@ -56,17 +65,6 @@ void setup()
   } 
 }
 
-void draw()
-{
-  switch(gameState)
-  {
-    case 0:
-      MainMenu();
-      break;
-  }
-  
-}
-
 void mousePressed()
 {
   quitClicked();
@@ -77,6 +75,16 @@ void mouseReleased()
   //If mouse released set it back to false.
   mousePressedStartButton = false;
   mscbtnEnd = false; 
+}
+
+void keyPressed()
+{
+  keys[keyCode] = true;
+}
+
+void keyReleased()
+{
+  keys[keyCode] = false;
 }
 
 void textDisplay(String text, TextForm size, int x, int y)
@@ -117,4 +125,15 @@ void quitClicked()
   {
     mscbtnEnd = false; //If not, set to false.
   }
+}
+
+void draw()
+{
+  switch(gameState)
+  {
+    case 0:
+      MainMenu();
+      break;
+  }
+  
 }
