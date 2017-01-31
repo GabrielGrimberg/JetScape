@@ -15,6 +15,23 @@ class Player
     this.playerHeight = playerHeight;
   }
   
+  void updatePlayer()
+  {
+    noStroke();
+    fill(0,0,255);
+    
+    if(yPos + playerHeight <= height - blockHeight * 0.5f)
+    {
+      yPos = yPos + gravity;
+    }
+    
+    if(keys[UP] && yPos >= 0)
+    {
+      yPos = yPos - playerSpeed * 3f; //How fast the player goes up.
+    }
+     
+  }
+  
   
   
   

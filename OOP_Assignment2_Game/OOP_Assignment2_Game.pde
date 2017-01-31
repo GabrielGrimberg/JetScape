@@ -45,6 +45,12 @@ boolean mousePressedStartButton = false; //Variable to highlight if box is press
 boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
 boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
 
+//Variables for out of bounds (for player).
+float blockWidth, blockHeight, blockXPos, blockYPos, blockSpeed;
+
+//Variable for the speed of the player going down.
+float gravity = 5;
+
 //Gamestate Variable.
 int gameState = 0;
 
