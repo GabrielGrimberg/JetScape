@@ -44,6 +44,10 @@ boolean[] keys = new boolean[1000];
 //Player sprite.
 PImage playerChar;
 
+//Repeating background.
+PImage []background = new PImage[2];
+float []repeatBg = new float[2];
+
 /* 
   - Global Variables -
 */
@@ -63,6 +67,12 @@ float gravity = 5;
 
 //Gamestate Variable.
 int gameState = 0;
+
+//Background Variables.
+int speed = 5;
+int speedBg = 2; //Background speed.
+int innerSpeed = 2;
+int fgSpeed = 7; //Coin Speed.
 
 
 void setup()
@@ -166,6 +176,23 @@ void startClicked()
   }
 }
 
+void movingBackground()
+{
+  //Background scrolling.
+  for(int i = 0; i < repeatBg.length; i++)
+  {
+    image(background[i],repeatBg[i],0);
+    repeatBg[i] = repeatBg[i] - speedBg;
+    
+    if(repeatBg[i] + width <= 0)
+    {
+      repeatBg[i] = width;
+    }
+    
+  }
+    
+}
+
 void draw()
 {
   switch(gameState)
@@ -175,6 +202,7 @@ void draw()
       break;
     case 1:
       clear();
+      movingBackground();
       player.updatePlayer();
       break;
       
