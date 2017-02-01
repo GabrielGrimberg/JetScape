@@ -13,5 +13,19 @@ class Coin
     this.cHeight = cHeight;
   }
   
+  void coinUpdate()
+  {
+    noStroke(); //No outline on coin.
+    ellipse(xPos,yPos,cWidth,cHeight); //Outter Coin.
+    fill(0);
+    
+    ellipse(xPos,yPos,cWidth / 2, cHeight / 2); //Inner coin.
+    stroke(255);
+    fill(255,255,0);
+    
+    xPos = xPos - speedc; // Coin speed.
+    
+  }
+  
   
 }
