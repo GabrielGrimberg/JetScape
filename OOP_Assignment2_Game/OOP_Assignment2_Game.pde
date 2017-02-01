@@ -9,6 +9,11 @@
 *                                        *
 ******************************************/
 
+/* 
+  - #DEFINE -
+*/
+//Amount of coins to spawn.
+int COINSPAWN = 1000;
 /*
   - Imports -
 */
@@ -29,13 +34,13 @@ MenuButtons EndGame; //Button to end game.
 Player player = new Player(250,250,5,70,90);
 
 /* Coin Objects */
-Coin[] coins = new Coin[1000];
+Coin[] coins = new Coin[COINSPAWN];
 
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
 /* Keys Pressed. */
-boolean[] keys = new boolean[1000];
+boolean[] keys = new boolean[COINSPAWN];
 
 /*
   - Images -
@@ -73,6 +78,7 @@ int innerSpeed = 2;
 int speedc = 7; //Coin Speed.
 
 float coinXPos, coinYPos; //Coin location.
+
 
 float theta = 0.0f;
 float radius = 1;
@@ -211,11 +217,11 @@ void movingBackground()
 /* Method to plot the coins */
 void movingCoins()
 {
-  for(int i = 0; i < 1000; i++)
+  for(int i = 0; i < COINSPAWN; i++)
   {
     float loc = coinYPos + sin(theta) * radius;
     
-    coins[i] = new Coin(width + 30 * i, loc, 20, 20); //Coins instances.
+    coins[i] = new Coin(width + 200 * i, loc, 20, 20); //Coins instances.
     theta = theta + random(1f,280f); //Choosing a random location.
     radius = 100; //Spreading out the coins.
   }
@@ -224,7 +230,7 @@ void movingCoins()
 /* Method to display the coins */
 void coinDisplay()
 {
-  for(int i = 0; i < 1000; i++)
+  for(int i = 0; i < COINSPAWN; i++)
   {
     coins[i].coinUpdate();
   }
@@ -251,8 +257,7 @@ void draw()
       player.updatePlayer();
       coinDisplay();
       scoreDisplay();
-      break;
-      
+      break;     
   }
   
 }
