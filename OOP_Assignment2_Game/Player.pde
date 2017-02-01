@@ -1,14 +1,17 @@
 class Player extends MainObjects
 {
   float playerSpeed; //Speed of player.
+  char space;
   
-  Player(float xPos, float yPos, float playerSpeed, float w, float h)
+  Player(float xPos, float yPos, float playerSpeed, float w, float h, char space)
   {
     this.xPos = xPos;
     this.yPos = yPos;
     this.playerSpeed = playerSpeed;
     this.w = w;
     this.h = h;
+    
+    this.space = space;
   }
   
   void update()
@@ -21,7 +24,7 @@ class Player extends MainObjects
       yPos = yPos + gravity;
     }
     
-    if(keys[' '] && yPos >= 70)
+    if(keyCheck(space) && yPos >= 70)
     {
       yPos = yPos - playerSpeed * 3f; //How fast the player goes up.
     }

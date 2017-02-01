@@ -35,7 +35,7 @@ MenuButtons EndGame; //Button to end game.
   - New Objects -
 */
 /* Player Object */
-Player player = new Player(250,250,5,70,90);
+Player player = new Player(250,250,5,70,90,' ');
 
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
@@ -100,6 +100,7 @@ void setup()
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
   
+  mainObjects.add(player);
   
   //Setting up the text.
   for(TextForm Amount : TextForm.values())
@@ -133,6 +134,15 @@ void keyPressed()
 void keyReleased()
 {
   keys[keyCode] = false;
+}
+
+boolean keyCheck(int x)
+{
+  if (keys.length >= x) 
+  {
+    return keys[x] || keys[Character.toUpperCase(x)];  
+  }
+  return false;
 }
 
 void textDisplay(String text, TextForm size, int x, int y)
