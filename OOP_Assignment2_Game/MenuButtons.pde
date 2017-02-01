@@ -24,9 +24,9 @@ class MenuButtons
        mouseY < menuYPos + boxSize)       
        
     {
-      mouseStartButton = true; //Set true, continue to mousePressed()
+      msbtnStr = true; //Set true, continue to mousePressed()
     
-    if(mousePressedStartButton == false) 
+    if(mscbtnStr == false) 
     { 
       fill(0,255,0);
     } 
@@ -36,7 +36,7 @@ class MenuButtons
     stroke(153);
     fill(153);
     
-    mouseStartButton = false;
+    msbtnStr = false;
   }
   
   //Drawing the box.

@@ -56,8 +56,8 @@ float []repeatBg = new float[2];
   - Global Variables -
 */
 //Boolean Variables for MenuButtons Class.
-boolean mouseStartButton = false; //Variable to check if the mouse is on the box.
-boolean mousePressedStartButton = false; //Variable to highlight if box is pressed.
+boolean msbtnStr = false; //Variable to check if the mouse is on the box.
+boolean mscbtnStr = false; //Variable to highlight if box is pressed.
 
 boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
 boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
@@ -79,9 +79,8 @@ int speedc = 7; //Coin Speed.
 
 float coinXPos, coinYPos; //Coin location.
 
-
 float theta = 0.0f;
-float radius = 1;
+float radius;
 
 //Score counter
 int score;
@@ -91,14 +90,8 @@ void setup()
   //Size of screen.
   size(1200,600);
   
-  blockWidth = 50; //Limit to where player walks.
-  blockHeight = blockWidth;
-  blockYPos = height - blockWidth;
-  blockSpeed = 5;
+  speedSet();
   
-  coinXPos = width * 0.5f;
-  coinYPos = height * 0.5f;
- 
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
@@ -109,15 +102,7 @@ void setup()
     Word[Amount.Pos] = new MovingLetters(this, Amount.Size, 0, 0);
   }
   
-  //Player Character
-  playerChar = loadImage("Player.png");
-  
-  //Loading the background image.
-  for(int i = 0; i < 2; i ++)
-  {
-    background[i] = loadImage("Background.png");
-    repeatBg[i] = width * i;
-  }
+  loadImages();
   
   movingCoins();
 }
@@ -131,7 +116,7 @@ void mousePressed()
 void mouseReleased() 
 {
   //If mouse released set it back to false.
-  mousePressedStartButton = false;
+  mscbtnStr = false;
   mscbtnEnd = false; 
 }
 
@@ -169,6 +154,7 @@ void MainMenu()
   EndGame.EndButton();
   stroke(0);
   textDisplay("Quit", TextForm.Big, 560, 430);
+  
 }
 
 void quitClicked()
@@ -187,15 +173,15 @@ void quitClicked()
 
 void startClicked()
 {
-  if(mouseStartButton == true) //If true
+  if(msbtnStr == true) //If true
   {     
-    mousePressedStartButton = true; //Set variable to true
+    mscbtnStr = true; //Set variable to true
     fill(255, 255, 255); //To highlight the box.
     gameState = 1;
   } 
   else 
   {
-    mouseStartButton = false; //If not, set to false.
+    msbtnStr = false; //If not, set to false.
   }
 }
 
@@ -242,8 +228,34 @@ void scoreDisplay()
   stroke(255);
   textDisplay("Score: " + score, TextForm.Normal, 10, 10);
 }
-  
 
+/* Method to load up images */
+void loadImages()
+{
+  //Player Character
+  playerChar = loadImage("Player.png");
+  
+  //Loading the background image.
+  for(int i = 0; i < 2; i ++)
+  {
+    background[i] = loadImage("Background.png");
+    repeatBg[i] = width * i;
+  }
+  
+}
+
+/* Method to set the speed. */
+void speedSet()
+{
+  blockWidth = 50; //Limit to where player walks.
+  blockHeight = blockWidth;
+  blockYPos = height - blockWidth;
+  blockSpeed = 5;
+  
+  coinXPos = width * 0.5f;
+  coinYPos = height * 0.5f;
+}
+  
 void draw()
 {
   switch(gameState)

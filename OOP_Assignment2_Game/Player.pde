@@ -25,13 +25,14 @@ class Player
       yPos = yPos + gravity;
     }
     
-    if(keys[UP] && yPos >= 0)
+    if(keys[' '] && yPos >= 70)
     {
       yPos = yPos - playerSpeed * 3f; //How fast the player goes up.
     }
     
     fill(255,255,0);
     image(playerChar,xPos,yPos); //Player on Screen.
-     
+    
   }
+  
 }
