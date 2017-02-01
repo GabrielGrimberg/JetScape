@@ -230,6 +230,14 @@ void coinDisplay()
   }
 }
 
+/* Method to display score */
+void scoreDisplay()
+{
+  stroke(255);
+  textDisplay("Score: " + score, TextForm.Normal, 10, 10);
+}
+  
+
 void draw()
 {
   switch(gameState)
@@ -242,6 +250,7 @@ void draw()
       movingBackground();
       player.updatePlayer();
       coinDisplay();
+      scoreDisplay();
       break;
       
   }
