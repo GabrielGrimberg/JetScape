@@ -1,25 +1,20 @@
-class Coin
+class Coin extends MainObjects
 {
-  float xPos;
-  float yPos;
-  float cWidth;
-  float cHeight;
-  
-  Coin(float xPos, float yPos, float cWidth, float cHeight)
+  Coin(float xPos, float yPos, float w, float h)
   {
     this.xPos = xPos;
     this.yPos = yPos;
-    this.cWidth = cWidth;
-    this.cHeight = cHeight;
+    this.w = w;
+    this.h = h;
   }
   
-  void coinUpdate()
+  void update()
   {
     noStroke(); //No outline on coin.
-    ellipse(xPos,yPos,cWidth,cHeight); //Outter Coin.
+    ellipse(xPos,yPos,w,h); //Outter Coin.
     fill(0);
     
-    ellipse(xPos,yPos,cWidth / 2, cHeight / 2); //Inner coin.
+    ellipse(xPos,yPos,w / 2, h / 2); //Inner coin.
     stroke(255);
     fill(255,255,0);
     
@@ -27,16 +22,16 @@ class Coin
     
     //Player touching the coins.
     if(xPos >= player.xPos &&
-       xPos <= player.xPos + player.playerWidth &&
+       xPos <= player.xPos + player.w &&
        yPos >= player.yPos &&
-       yPos <= player.yPos + player.playerHeight)
+       yPos <= player.yPos + player.h)
     {
       
       //Fix to correctly adding the score.
-      this.cHeight = 0;
+      this.h = 0;
       this.xPos = 0;
       this.yPos = 0;
-      this.cWidth = 0;
+      this.w = 0;
       
       //Incrementing the score.
       score++;

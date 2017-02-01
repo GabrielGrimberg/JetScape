@@ -21,6 +21,10 @@ import de.ilu.movingletters.*; //Lib for the text format.
 import processing.sound.*; //Lib for the sound format.
 
 /* 
+  - Array Lists -
+*/
+ArrayList<MainObjects> mainObjects = new ArrayList<MainObjects>();
+/* 
   - Classes -
 */
 /*Creating Objects for the Menu. */
@@ -95,6 +99,7 @@ void setup()
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
+  
   
   //Setting up the text.
   for(TextForm Amount : TextForm.values())
@@ -187,6 +192,7 @@ void startClicked()
 
 void movingBackground()
 {
+  background(255);
   //Background scrolling.
   for(int i = 0; i < repeatBg.length; i++)
   {
@@ -218,7 +224,7 @@ void coinDisplay()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
-    coins[i].coinUpdate();
+    coins[i].update();
   }
 }
 
@@ -266,7 +272,7 @@ void draw()
     case 1:
       clear();
       movingBackground();
-      player.updatePlayer();
+      player.update();
       coinDisplay();
       scoreDisplay();
       break;     
