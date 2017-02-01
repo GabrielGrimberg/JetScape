@@ -31,8 +31,15 @@ class Coin
        yPos >= player.yPos &&
        yPos <= player.yPos + player.playerHeight)
     {
-      cHeight = 0;
-      score = score + 1;
+      
+      //Fix to correctly adding the score.
+      this.cHeight = 0;
+      this.xPos = 0;
+      this.yPos = 0;
+      this.cWidth = 0;
+      
+      //Incrementing the score.
+      score++;
     }
     
   }
