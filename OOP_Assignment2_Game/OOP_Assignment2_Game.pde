@@ -28,6 +28,9 @@ MenuButtons EndGame; //Button to end game.
 /* Player Object */
 Player player = new Player(250,250,5,70,90);
 
+/* Coin Objects */
+Coin[] coins = new Coin[1000];
+
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
@@ -63,12 +66,16 @@ float gravity = 5;
 //Gamestate Variable.
 int gameState = 0;
 
-//Background Variables.
+//Speed variables.
 int speed = 5;
 int speedBg = 2; //Background speed.
 int innerSpeed = 2;
 int speedc = 7; //Coin Speed.
 
+float coinXPos, coinYPos; //Coin location.
+
+float theta = 0.0f;
+float radius = 1;
 
 void setup()
 {
@@ -79,6 +86,9 @@ void setup()
   blockHeight = blockWidth;
   blockYPos = height - blockWidth;
   blockSpeed = 5;
+  
+  coinXPos = width * 0.5f;
+  coinYPos = height * 0.5f;
  
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
@@ -99,6 +109,8 @@ void setup()
     background[i] = loadImage("Background.png");
     repeatBg[i] = width * i;
   }
+  
+  movingCoins();
 }
 
 void mousePressed()
@@ -191,6 +203,18 @@ void movingBackground()
       repeatBg[i] = width;
     }  
   }   
+}
+
+void movingCoins()
+{
+  for(int i = 0; i < 1000; i++)
+  {
+    float loc = coinYPos + sin(theta) * radius;
+    
+    coins[i] = new Coin(width + 30 * i, loc, 20, 20); //Coins instances.
+    theta = theta + random(1f,280f); //Choosing a random location.
+    radius = 100; //Spreading out the coins.
+  }
 }
 
 void draw()
