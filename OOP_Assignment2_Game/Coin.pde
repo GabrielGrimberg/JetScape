@@ -25,7 +25,16 @@ class Coin
     
     xPos = xPos - speedc; // Coin speed.
     
+    //Player touching the coins.
+    if(xPos >= player.xPos &&
+       xPos <= player.xPos + player.playerWidth &&
+       yPos >= player.yPos &&
+       yPos <= player.yPos + player.playerHeight)
+    {
+      cHeight = 0;
+      score = score + 1;
+    }
+    
   }
-  
-  
+   
 }

@@ -77,6 +77,9 @@ float coinXPos, coinYPos; //Coin location.
 float theta = 0.0f;
 float radius = 1;
 
+//Score counter
+int score;
+
 void setup()
 {
   //Size of screen.
