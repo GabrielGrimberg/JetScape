@@ -56,6 +56,9 @@ PImage playerChar;
 PImage []background = new PImage[2];
 float []repeatBg = new float[2];
 
+PImage []background2 = new PImage[2];
+float []repeatBg2 = new float[2];
+
 /* 
   - Global Variables -
 */
@@ -202,8 +205,19 @@ void startClicked()
 
 void movingBackground()
 {
-  background(255);
-  //Background scrolling.
+  //Inner moving background
+  for(int i = 0; i < repeatBg2.length; i++)
+  {
+    image(background2[i],repeatBg2[i],0);
+    repeatBg2[i] = repeatBg2[i] - speedBg;
+    
+    if(repeatBg2[i] + width <= 0)
+    {
+      repeatBg2[i] = width;
+    }  
+  }
+
+  //Outter Background scrolling.
   for(int i = 0; i < repeatBg.length; i++)
   {
     image(background[i],repeatBg[i],0);
@@ -213,7 +227,8 @@ void movingBackground()
     {
       repeatBg[i] = width;
     }  
-  }   
+  }
+  
 }
 
 /* Method to plot the coins */
@@ -256,6 +271,13 @@ void loadImages()
   {
     background[i] = loadImage("Background.png");
     repeatBg[i] = width * i;
+  }
+  
+  //Loading the background image.
+  for(int i = 0; i < 2; i ++)
+  {
+    background2[i] = loadImage("galaxy.png");
+    repeatBg2[i] = width * i;
   }
   
 }
