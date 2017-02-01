@@ -205,6 +205,7 @@ void movingBackground()
   }   
 }
 
+/* Method to plot the coins */
 void movingCoins()
 {
   for(int i = 0; i < 1000; i++)
@@ -214,6 +215,15 @@ void movingCoins()
     coins[i] = new Coin(width + 30 * i, loc, 20, 20); //Coins instances.
     theta = theta + random(1f,280f); //Choosing a random location.
     radius = 100; //Spreading out the coins.
+  }
+}
+
+/* Method to display the coins */
+void coinDisplay()
+{
+  for(int i = 0; i < 1000; i++)
+  {
+    coins[i].coinUpdate();
   }
 }
 
@@ -228,6 +238,7 @@ void draw()
       clear();
       movingBackground();
       player.updatePlayer();
+      coinDisplay();
       break;
       
   }
