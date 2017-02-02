@@ -36,6 +36,7 @@ MenuButtons EndGame; //Button to end game.
 */
 /* Player Object */
 Player player = new Player(250,250,5,70,90,' ');
+Player jetpack = new Player(200,200,5,70,90,' ');
 
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
@@ -51,6 +52,9 @@ boolean[] keys = new boolean[COINSPAWN];
 */
 //Player sprite.
 PImage playerChar;
+
+//Jetpack sprite.
+PImage jetpackImg;
 
 //Repeating background.
 PImage []background = new PImage[2];
@@ -104,6 +108,7 @@ void setup()
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
   
   mainObjects.add(player);
+  mainObjects.add(jetpack);
   
   //Setting up the text.
   for(TextForm Amount : TextForm.values())
@@ -160,7 +165,7 @@ void MainMenu()
   if(frameCount / 30 % 2 == 0)
   {
     stroke(255);
-    textDisplay("Running Dangerously", TextForm.Biggest, 300, 75);
+    textDisplay("JetScape", TextForm.Biggest, 450, 75);
   }
   
   //Start button with the start text.
@@ -266,6 +271,8 @@ void loadImages()
   //Player Character
   playerChar = loadImage("Player.png");
   
+  jetpackImg = loadImage("Jetflame.png");
+  
   //Loading the background image.
   for(int i = 0; i < 2; i ++)
   {
@@ -305,6 +312,7 @@ void draw()
       clear();
       movingBackground();
       player.update();
+      jetpack.update();
       coinDisplay();
       scoreDisplay();
       break;     
