@@ -2,21 +2,22 @@ public class Jetflame extends Player
 {
   Jetflame()
   {
-    super(250,290,5,70,90,' ');
+    super(250,290,5,120,60,' ');
   }
   
   @Override
   public void update()
   {
+    int jetUp = 120;
     noStroke();
     fill(0,0,255);
     
-    if(yPos + h <= height - blockHeight * 0.5f)
+    if(yPos + h <= height - 1 * 0.5f)
     {
       yPos = yPos + gravity;
     }
     
-    if(keyCheck(space) && yPos >= 70)
+    if(keyCheck(space) && yPos >= jetUp)
     {
       yPos = yPos - playerSpeed * 3f; //How fast the player goes up.
     }
