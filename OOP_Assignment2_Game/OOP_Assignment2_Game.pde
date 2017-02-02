@@ -36,6 +36,7 @@ MenuButtons EndGame; //Button to end game.
 */
 /* Player Object */
 Player player = new Player(250,250,5,70,90,' ');
+Jetflame jetflame = new Jetflame();
 
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
@@ -95,7 +96,7 @@ float radius;
 //Score counter
 int score;
 
-void setup()
+public void setup()
 {
   //Size of screen.
   size(1200,600);
@@ -119,30 +120,30 @@ void setup()
   movingCoins();
 }
 
-void mousePressed()
+public void mousePressed()
 {
   quitClicked();
   startClicked();
 }
 
-void mouseReleased() 
+public void mouseReleased() 
 {
   //If mouse released set it back to false.
   mscbtnStr = false;
   mscbtnEnd = false; 
 }
 
-void keyPressed()
+public void keyPressed()
 {
   keys[keyCode] = true;
 }
 
-void keyReleased()
+public void keyReleased()
 {
   keys[keyCode] = false;
 }
 
-boolean keyCheck(int x)
+public boolean keyCheck(int x)
 {
   if (keys.length >= x) 
   {
@@ -151,12 +152,12 @@ boolean keyCheck(int x)
   return false;
 }
 
-void textDisplay(String text, TextForm size, int x, int y)
+public void textDisplay(String text, TextForm size, int x, int y)
 {
   Word[size.Pos].text(text, x, y);  
 }
 
-void MainMenu()
+public void MainMenu()
 {
   background(0);
   
@@ -178,7 +179,7 @@ void MainMenu()
   
 }
 
-void quitClicked()
+public void quitClicked()
 {
   if(msbtnEnd == true) //If true
   {     
@@ -192,7 +193,7 @@ void quitClicked()
   }
 }
 
-void startClicked()
+public void startClicked()
 {
   if(msbtnStr == true) //If true
   {     
@@ -206,7 +207,7 @@ void startClicked()
   }
 }
 
-void movingBackground()
+public void movingBackground()
 {
   //Inner moving background
   for(int i = 0; i < repeatBg2.length; i++)
@@ -235,7 +236,7 @@ void movingBackground()
 }
 
 /* Method to plot the coins */
-void movingCoins()
+public void movingCoins()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
@@ -248,7 +249,7 @@ void movingCoins()
 }
 
 /* Method to display the coins */
-void coinDisplay()
+public void coinDisplay()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
@@ -257,14 +258,14 @@ void coinDisplay()
 }
 
 /* Method to display score */
-void scoreDisplay()
+public void scoreDisplay()
 {
   stroke(255);
   textDisplay("Score: " + score, TextForm.Normal, 10, 10);
 }
 
 /* Method to load up images */
-void loadImages()
+public void loadImages()
 {
   //Player Character
   playerChar = loadImage("Player.png");
@@ -288,7 +289,7 @@ void loadImages()
 }
 
 /* Method to set the speed. */
-void speedSet()
+public void speedSet()
 {
   blockWidth = 50; //Limit to where player walks.
   blockHeight = blockWidth;
@@ -299,7 +300,7 @@ void speedSet()
   coinYPos = height * 0.5f;
 }
   
-void draw()
+public void draw()
 {
   switch(gameState)
   {
@@ -310,6 +311,7 @@ void draw()
       clear();
       movingBackground();
       player.update();
+      jetflame.update();
       coinDisplay();
       scoreDisplay();
       break;     

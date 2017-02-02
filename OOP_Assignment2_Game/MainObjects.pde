@@ -5,7 +5,7 @@ abstract class MainObjects
   float h;
   float w;
   
-  MainObjects()
+  public MainObjects()
   {
     
   }

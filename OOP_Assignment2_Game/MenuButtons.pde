@@ -1,4 +1,4 @@
-class MenuButtons
+public class MenuButtons
 {
   /* Variables for Start Menu */
   float menuXPos; //Variable for the X Position.
@@ -6,7 +6,7 @@ class MenuButtons
   int boxSize = 100; //Variable for the size of the box
   int boxCurve = 50; //Variable for the curve of the box.
   
-  MenuButtons(float boxXPoint, float boxYPoint, int sizeOfbox, int boxCurve)
+  public MenuButtons(float boxXPoint, float boxYPoint, int sizeOfbox, int boxCurve)
   {
     this.menuXPos = boxXPoint;
     this.menuYPos = boxYPoint;
@@ -14,7 +14,7 @@ class MenuButtons
     this.boxCurve = boxCurve;
   }
   
-  void StartButton()
+  public void StartButton()
   {
     rectMode(RADIUS);
     
@@ -44,7 +44,7 @@ class MenuButtons
   fill(0);
   }
   
-  void EndButton()
+  public void EndButton()
   {
     rectMode(RADIUS);
     

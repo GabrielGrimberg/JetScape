@@ -1,6 +1,6 @@
-class Coin extends MainObjects
+public class Coin extends MainObjects
 {
-  Coin(float xPos, float yPos, float w, float h)
+  public Coin(float xPos, float yPos, float w, float h)
   {
     this.xPos = xPos;
     this.yPos = yPos;
@@ -8,7 +8,7 @@ class Coin extends MainObjects
     this.h = h;
   }
   
-  void update()
+  public void update()
   {
     noStroke(); //No outline on coin.
     ellipse(xPos,yPos,w,h); //Outter Coin.

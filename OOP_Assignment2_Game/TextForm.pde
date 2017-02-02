@@ -1,4 +1,4 @@
-enum TextForm
+public enum TextForm
 {
    Normal(16, 0), Big(32, 1), Biggest(48, 2);
    

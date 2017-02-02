@@ -1,9 +1,9 @@
-class Player extends MainObjects
+public class Player extends MainObjects
 {
   float playerSpeed; //Speed of player.
   char space;
   
-  Player(float xPos, float yPos, float playerSpeed, float w, float h, char space)
+  public Player(float xPos, float yPos, float playerSpeed, float w, float h, char space)
   {
     this.xPos = xPos;
     this.yPos = yPos;
@@ -14,7 +14,7 @@ class Player extends MainObjects
     this.space = space;
   }
   
-  void update()
+  public void update()
   {
     noStroke();
     fill(0,0,255);
@@ -31,11 +31,6 @@ class Player extends MainObjects
     
     fill(255,255,0);
     image(playerChar,xPos,yPos); //Player on Screen.
-    
-    if(keyCheck(space))
-    {
-      image(jetpackImg,xPos,yPos); //Jet flame on Screen.
-    }
     
   }
   
