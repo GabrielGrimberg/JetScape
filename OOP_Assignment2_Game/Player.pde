@@ -32,6 +32,12 @@ class Player extends MainObjects
     fill(255,255,0);
     image(playerChar,xPos,yPos); //Player on Screen.
     
+    if(keyCheck(space))
+    {
+      image(jetpackImg,xPos,yPos); //Jet flame on Screen.
+    }
+    
   }
   
+
 }

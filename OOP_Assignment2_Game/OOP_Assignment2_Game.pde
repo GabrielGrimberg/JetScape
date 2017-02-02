@@ -36,7 +36,6 @@ MenuButtons EndGame; //Button to end game.
 */
 /* Player Object */
 Player player = new Player(250,250,5,70,90,' ');
-Player jetpack = new Player(200,200,5,70,90,' ');
 
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
@@ -108,7 +107,6 @@ void setup()
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
   
   mainObjects.add(player);
-  mainObjects.add(jetpack);
   
   //Setting up the text.
   for(TextForm Amount : TextForm.values())
@@ -312,7 +310,6 @@ void draw()
       clear();
       movingBackground();
       player.update();
-      jetpack.update();
       coinDisplay();
       scoreDisplay();
       break;     
