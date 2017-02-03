@@ -10,7 +10,6 @@ public class Player extends MainObjects
     this.playerSpeed = playerSpeed;
     this.w = w;
     this.h = h;
-    
     this.space = space;
   }
   

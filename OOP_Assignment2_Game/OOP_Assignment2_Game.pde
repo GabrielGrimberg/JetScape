@@ -35,7 +35,9 @@ MenuButtons EndGame; //Button to end game.
   - New Objects -
 */
 /* Player Object */
-Player player = new Player(250,250,5,70,90,' ');
+Player player = new Player(250,250,4,70,90,' ');
+
+/* Jetflame Object */
 Jetflame jetflame = new Jetflame();
 
 /* Coin Objects */
@@ -83,7 +85,7 @@ float gravity = 5;
 int gameState = 0;
 
 //Speed variables.
-int speed = 5;
+int speed = 3;
 int speedBg = 2; //Background speed.
 int innerSpeed = 2;
 int speedc = 7; //Coin Speed.
@@ -95,6 +97,11 @@ float radius;
 
 //Score counter
 int score;
+
+/* Background Speed Change */
+float timeDelta = 0;
+float timeAccumulator = 0;
+int last = 0;
 
 public void setup()
 {
@@ -299,6 +306,34 @@ public void speedSet()
   coinXPos = width * 0.5f;
   coinYPos = height * 0.5f;
 }
+
+public void cSpeedChange()
+{
+  int now = millis();
+  timeDelta = (now - last) / 1000.0f;  
+  last = now;
+  
+  timeAccumulator += timeDelta;
+  
+  println(timeDelta);
+  println(timeAccumulator);
+  
+  if (timeAccumulator >= 30 && timeAccumulator < 31)
+  {
+    speedBg = 3;
+    speedc = 8;
+  }
+  if (timeAccumulator >= 100 && timeAccumulator < 101)
+  {
+    speedBg = 4;
+    speedc = 9;
+  }
+  if (timeAccumulator >= 200)
+  {
+    speedBg = 5;
+    speedc = 10;
+  }   
+}
   
 public void draw()
 {
@@ -314,6 +349,7 @@ public void draw()
       jetflame.update();
       coinDisplay();
       scoreDisplay();
+      cSpeedChange();
       break;     
   }
   

@@ -2,7 +2,7 @@ public class Jetflame extends Player
 {
   Jetflame()
   {
-    super(250,290,5,120,60,' ');
+    super(250,290,4,120,60,' ');
   }
   
   @Override
