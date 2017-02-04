@@ -19,6 +19,14 @@ int COINSPAWN = 1000;
 */
 import de.ilu.movingletters.*; //Lib for the text format.
 import processing.sound.*; //Lib for the sound format.
+import ddf.minim.*;
+
+/* Sound Files */
+Minim minim;
+AudioPlayer bClick;    // Button Click.
+AudioPlayer cCollect;  // Coin Collecting.
+AudioPlayer introM;    // INtroduction Music.
+AudioPlayer gameMusic;     // In game Music.
 
 /* 
   - Array Lists -
@@ -124,6 +132,12 @@ public void setup()
     Word[Amount.Pos] = new MovingLetters(this, Amount.Size, 0, 0);
   }
   
+  minim = new Minim(this);
+  
+  bClick = minim.loadFile("Click.mp3");
+  gameMusic = minim.loadFile("gameMusic.wav");
+  cCollect = minim.loadFile("coin.wav");
+  
   loadImages();
   
   movingCoins();
@@ -166,6 +180,17 @@ public void textDisplay(String text, TextForm size, int x, int y)
   Word[size.Pos].text(text, x, y);  
 }
 
+void playSound(AudioPlayer sound)
+{
+  if (sound == null)
+  {
+    return;
+  }
+  
+  sound.rewind();
+  sound.play(); 
+}
+
 public void MainMenu()
 {
   background(0);
@@ -205,9 +230,11 @@ public void quitClicked()
 public void startClicked()
 {
   if(msbtnStr == true) //If true
-  {     
+  {
     mscbtnStr = true; //Set variable to true
     fill(255, 255, 255); //To highlight the box.
+    playSound(bClick);
+    playSound(gameMusic);
     gameState = 1;
   } 
   else 
@@ -298,6 +325,7 @@ public void draw()
       break;
     case 1:
       clear();
+      noCursor();
       movingBackground();
       player.update();
       jetflame.update();

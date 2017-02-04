@@ -26,6 +26,7 @@ public class Coin extends MainObjects
        yPos >= player.yPos &&
        yPos <= player.yPos + player.h)
     {
+      playSound(cCollect);
       
       //Fix to correctly adding the score.
       this.h = 0;
