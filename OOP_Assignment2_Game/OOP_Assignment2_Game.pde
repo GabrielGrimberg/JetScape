@@ -43,6 +43,9 @@ Jetflame jetflame = new Jetflame();
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
 
+/* Speed Control Object */
+SpeedControl sControl = new SpeedControl();
+
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
@@ -86,9 +89,9 @@ int gameState = 0;
 
 //Speed variables.
 int speed = 3;
-int speedBg = 2; //Background speed.
+int speedBg = 4; //Background speed.
 int innerSpeed = 2;
-int speedc = 7; //Coin Speed.
+int speedc = 4; //Coin Speed.
 
 float coinXPos, coinYPos; //Coin location.
 
@@ -306,34 +309,6 @@ public void speedSet()
   coinXPos = width * 0.5f;
   coinYPos = height * 0.5f;
 }
-
-public void cSpeedChange()
-{
-  int now = millis();
-  timeDelta = (now - last) / 1000.0f;  
-  last = now;
-  
-  timeAccumulator += timeDelta;
-  
-  println(timeDelta);
-  println(timeAccumulator);
-  
-  if (timeAccumulator >= 30 && timeAccumulator < 31)
-  {
-    speedBg = 3;
-    speedc = 8;
-  }
-  if (timeAccumulator >= 100 && timeAccumulator < 101)
-  {
-    speedBg = 4;
-    speedc = 9;
-  }
-  if (timeAccumulator >= 200)
-  {
-    speedBg = 5;
-    speedc = 10;
-  }   
-}
   
 public void draw()
 {
@@ -349,7 +324,7 @@ public void draw()
       jetflame.update();
       coinDisplay();
       scoreDisplay();
-      cSpeedChange();
+      sControl.cSpeedChange();
       break;     
   }
   
