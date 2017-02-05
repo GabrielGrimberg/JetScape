@@ -26,7 +26,6 @@ import ddf.minim.*;
 Minim minim;
 AudioPlayer bClick;    // Button Click.
 AudioPlayer cCollect;  // Coin Collecting.
-AudioPlayer introM;    // INtroduction Music.
 AudioPlayer gameMusic; // In game Music.
 
 /* 
@@ -87,7 +86,7 @@ boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
 boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
 
 //Variables for out of bounds (for player).
-float blockWidth, blockHeight, blockXPos, blockYPos, blockSpeed;
+float blockWidth, blockHeight, blockXPos, blockYPos;
 
 //Variable for the speed of the player going down.
 float gravity = 5;
@@ -100,14 +99,6 @@ int speed = 3;
 int speedBg = 5; //Background speed.
 int speedc = 5; //Coin Speed.
 int speedDanger = 5;
-
-float coinXPos, coinYPos; //Coin location.
-float dangerXPos, dangerYPos; //Coin location.
-
-float theta = 0.0f;
-float thetaDanger = 0.0f;
-float radius;
-float radiusDanger;
 
 //Score counter
 int score;
@@ -123,9 +114,6 @@ public void setup()
   size(1200,600);
   
   frameRate(60);
-  
-  speedSet();
-  
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
@@ -204,6 +192,7 @@ void playSound(AudioPlayer sound)
   sound.play(); 
 }
 
+
 public void MainMenu()
 {
   background(0);
@@ -274,7 +263,26 @@ public void movingBackground()
 
 /* Method to plot the coins */
 public void movingObjects()
-{  
+{
+  float coinYPos; //Coin location.
+  float dangerYPos; //Coin location.
+
+  float theta = 0.0f;
+  float thetaDanger = 0.0f;
+  float radius = 0.0f;
+  float radiusDanger = 0.0f;
+  
+  blockWidth = 50; //Limit to where player walks.
+  blockHeight = blockWidth;
+  blockYPos = height - blockWidth;
+  //blockSpeed = 5;
+  
+  //coinXPos = width * 0.5f;
+  coinYPos = height * 0.5f;
+  
+  //dangerXPos = width * 0.5f;
+  dangerYPos = height * 0.5f;
+  
   for(int i = 0; i < COINSPAWN; i++)
   {
     float loc = coinYPos + sin(theta) * radius;
@@ -333,27 +341,12 @@ public void loadImages()
   }  
 }
 
-/* Method to set the speed. */
-public void speedSet()
-{
-  blockWidth = 50; //Limit to where player walks.
-  blockHeight = blockWidth;
-  blockYPos = height - blockWidth;
-  blockSpeed = 5;
-  
-  coinXPos = width * 0.5f;
-  coinYPos = height * 0.5f;
-  
-  dangerXPos = width * 0.5f;
-  dangerYPos = height * 0.5f;
-}
-
 void endState()
 {
   clear();
   cursor();
+  gameMusic.close();
   background(0);
-  minim.stop();
   
   stroke(255);
   textDisplay("Oh no, You died!", TextForm.Biggest, 350, 100);
