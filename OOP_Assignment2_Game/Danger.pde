@@ -11,7 +11,26 @@ public class Danger extends MainObjects
   @Override
   public void update()
   {
+    noStroke(); //No outline on coin.
+    ellipse(xPos,yPos,w,h); //Outter Coin.
+    fill(0);
     
+    ellipse(xPos,yPos,w / 2, h / 2); //Inner coin.
+    stroke(255);
+    fill(255,0,0);
+    
+    xPos = xPos - speedDanger; // Coin speed.
+    
+    //Player touching the coins.
+    if(xPos >= player.xPos &&
+       xPos <= player.xPos + player.w &&
+       yPos >= player.yPos &&
+       yPos <= player.yPos + player.h)
+    {
+
+      //Incrementing the score.
+      gameState = 0;
+    }
     
   }
   

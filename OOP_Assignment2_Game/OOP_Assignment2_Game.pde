@@ -26,7 +26,7 @@ Minim minim;
 AudioPlayer bClick;    // Button Click.
 AudioPlayer cCollect;  // Coin Collecting.
 AudioPlayer introM;    // INtroduction Music.
-AudioPlayer gameMusic;     // In game Music.
+AudioPlayer gameMusic; // In game Music.
 
 /* 
   - Array Lists -
@@ -50,6 +50,8 @@ Jetflame jetflame = new Jetflame();
 
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
+
+Danger[] danger = new Danger[COINSPAWN];
 
 /* Speed Control Object */
 SpeedControl sControl = new SpeedControl();
@@ -97,11 +99,15 @@ int speed = 3;
 int speedBg = 4; //Background speed.
 int innerSpeed = 2;
 int speedc = 4; //Coin Speed.
+int speedDanger = 6;
 
 float coinXPos, coinYPos; //Coin location.
+float dangerXPos, dangerYPos; //Coin location.
 
 float theta = 0.0f;
+float thetaDanger = 0.0f;
 float radius;
+float radiusDanger;
 
 //Score counter
 int score;
@@ -140,7 +146,7 @@ public void setup()
   
   loadImages();
   
-  movingCoins();
+  movingObjects();
 }
 
 public void mousePressed()
@@ -182,7 +188,7 @@ public void textDisplay(String text, TextForm size, int x, int y)
 
 void playSound(AudioPlayer sound)
 {
-  if (sound == null)
+  if(sound == null)
   {
     return;
   }
@@ -260,24 +266,38 @@ public void movingBackground()
 }
 
 /* Method to plot the coins */
-public void movingCoins()
+public void movingObjects()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
     float loc = coinYPos + sin(theta) * radius;
     
-    coins[i] = new Coin(width + 200 * i, loc, 20, 20); //Coins instances.
-    theta = theta + random(1f,280f); //Choosing a random location.
-    radius = 100; //Spreading out the coins.
+    coins[i] = new Coin(width + 400 * i, loc, 20, 20); //Coins instances.
+    theta = theta + random(0f,500f); //Choosing a random location.
+    radius = 150; //Spreading out the coins.
+  }
+  
+  for(int i = 0; i < COINSPAWN; i++)
+  {
+    float location = dangerYPos + sin(thetaDanger) * radiusDanger;
+    
+    danger[i] = new Danger(width + 500 * i, location, 60, 60); //Coins instances.
+    thetaDanger = thetaDanger + random(0f,500f); //Choosing a random location.
+    radiusDanger = 150; //Spreading out the dangers
   }
 }
 
 /* Method to display the coins */
-public void coinDisplay()
+public void displayObjects()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
     coins[i].update();
+  }
+  
+  for(int i = 0; i < COINSPAWN; i++)
+  {
+    danger[i].update();
   }
 }
 
@@ -314,6 +334,9 @@ public void speedSet()
   
   coinXPos = width * 0.5f;
   coinYPos = height * 0.5f;
+  
+  dangerXPos = width * 0.5f;
+  dangerYPos = height * 0.5f;
 }
   
 public void draw()
@@ -329,7 +352,7 @@ public void draw()
       movingBackground();
       player.update();
       jetflame.update();
-      coinDisplay();
+      displayObjects();
       scoreDisplay();
       //sControl.cSpeedChange();
       break;     
