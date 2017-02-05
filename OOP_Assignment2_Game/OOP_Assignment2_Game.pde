@@ -192,7 +192,6 @@ void playSound(AudioPlayer sound)
   sound.play(); 
 }
 
-
 public void MainMenu()
 {
   background(0);
@@ -344,8 +343,8 @@ public void loadImages()
 void endState()
 {
   clear();
-  cursor();
-  gameMusic.close();
+  cursor(); //Displaying the mouse.
+  gameMusic.pause(); //Pausing the music.
   background(0);
   
   stroke(255);
