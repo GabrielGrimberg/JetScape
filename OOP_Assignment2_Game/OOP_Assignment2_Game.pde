@@ -13,8 +13,8 @@
   - #DEFINE -
 */
 //Amount of coins to spawn.
-int COINSPAWN = 1000;
-int DANGERSPWAN = 1000;
+int COINSPAWN = 100;
+int DANGERSPWAN = 100;
 /*
   - Imports -
 */
@@ -97,9 +97,9 @@ int gameState = 0;
 
 //Speed variables.
 int speed = 3;
-int speedBg = 3; //Background speed.
-int speedc = 3; //Coin Speed.
-int speedDanger = 3;
+int speedBg = 5; //Background speed.
+int speedc = 5; //Coin Speed.
+int speedDanger = 5;
 
 float coinXPos, coinYPos; //Coin location.
 float dangerXPos, dangerYPos; //Coin location.
@@ -267,7 +267,7 @@ public void movingBackground()
 
 /* Method to plot the coins */
 public void movingObjects()
-{
+{  
   for(int i = 0; i < COINSPAWN; i++)
   {
     float loc = coinYPos + sin(theta) * radius;
