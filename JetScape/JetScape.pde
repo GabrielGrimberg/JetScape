@@ -51,6 +51,9 @@ Jetflame jetflame = new Jetflame();
 /* Coin Objects */
 Coin[] coins = new Coin[COINSPAWN];
 
+/* Background Object */
+MovingBackground moveBk = new MovingBackground();
+
 Danger[] danger = new Danger[COINSPAWN];
 
 /* Speed Control Object */
@@ -244,22 +247,6 @@ public void startClicked()
   }
 }
 
-public void movingBackground()
-{
-  //Outter Background scrolling.
-  for(int i = 0; i < repeatBg.length; i++)
-  {
-    image(background[i],repeatBg[i],0);
-    repeatBg[i] = repeatBg[i] - speedBg;
-    
-    if(repeatBg[i] + width <= 0)
-    {
-      repeatBg[i] = width;
-    }  
-  }
-  
-}
-
 /* Method to plot the coins */
 public void movingObjects()
 {
@@ -376,7 +363,7 @@ public void draw()
     case 1:
       clear();
       noCursor();
-      movingBackground();
+      moveBk.mvBack();
       player.update();
       jetflame.update();
       displayObjects();
