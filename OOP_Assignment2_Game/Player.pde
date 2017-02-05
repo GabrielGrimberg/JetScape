@@ -13,6 +13,7 @@ public class Player extends MainObjects
     this.space = space;
   }
   
+  @Override
   public void update()
   {
     noStroke();
