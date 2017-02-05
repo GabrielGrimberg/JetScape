@@ -27,6 +27,12 @@ public class Danger extends MainObjects
        yPos >= player.yPos &&
        yPos <= player.yPos + player.h)
     {
+      
+      //Fix to correctly adding the score.
+      this.h = 0;
+      this.xPos = 0;
+      this.yPos = 0;
+      this.w = 0;
 
       //Incrementing the score.
       gameState = 2;

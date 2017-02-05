@@ -165,6 +165,13 @@ public void mouseReleased()
 public void keyPressed()
 {
   keys[keyCode] = true;
+  
+  if(key == ' ' && gameState == 2)
+  {
+    gameState = 0;
+    reset();
+  }
+  
 }
 
 public void keyReleased()
@@ -360,8 +367,11 @@ void endState()
     textDisplay("Press SPACE to go to menu", TextForm.Biggest, 150, 500);
   }
   
-  
-  
+}
+
+void reset()
+{
+  score = 0;
 }
   
 public void draw()
@@ -384,7 +394,6 @@ public void draw()
      case 2:
        endState();
        break;
-       
   }
   
 }
