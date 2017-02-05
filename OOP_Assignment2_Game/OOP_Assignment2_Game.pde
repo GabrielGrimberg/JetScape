@@ -340,6 +340,29 @@ public void speedSet()
   dangerXPos = width * 0.5f;
   dangerYPos = height * 0.5f;
 }
+
+void endState()
+{
+  clear();
+  cursor();
+  background(0);
+  minim.stop();
+  
+  stroke(255);
+  textDisplay("Oh no, You died!", TextForm.Biggest, 350, 100);
+  
+  stroke(255);
+  textDisplay("Your score: " + score, TextForm.Biggest, 375, 300);
+    
+  if(frameCount / 30 % 2 == 0)
+  {
+    stroke(255);
+    textDisplay("Press SPACE to go to menu", TextForm.Biggest, 150, 500);
+  }
+  
+  
+  
+}
   
 public void draw()
 {
@@ -357,7 +380,11 @@ public void draw()
       displayObjects();
       scoreDisplay();
       //sControl.cSpeedChange();
-      break;     
+      break;
+     case 2:
+       endState();
+       break;
+       
   }
   
 }

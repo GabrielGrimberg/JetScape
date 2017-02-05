@@ -29,7 +29,7 @@ public class Danger extends MainObjects
     {
 
       //Incrementing the score.
-      gameState = 0;
+      gameState = 2;
     }
     
   }
