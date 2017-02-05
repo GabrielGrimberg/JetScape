@@ -27,9 +27,6 @@ public class Jetflame extends Player
       image(jetpackImg,xPos,yPos); //Jet flame on Screen.
     }
     
-    //Making the first coin yellow.
-    fill(255,255,0);
-    
   }
   
   

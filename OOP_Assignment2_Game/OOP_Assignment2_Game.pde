@@ -14,6 +14,7 @@
 */
 //Amount of coins to spawn.
 int COINSPAWN = 1000;
+int DANGERSPWAN = 1000;
 /*
   - Imports -
 */
@@ -96,10 +97,9 @@ int gameState = 0;
 
 //Speed variables.
 int speed = 3;
-int speedBg = 4; //Background speed.
-int innerSpeed = 2;
-int speedc = 4; //Coin Speed.
-int speedDanger = 6;
+int speedBg = 3; //Background speed.
+int speedc = 3; //Coin Speed.
+int speedDanger = 3;
 
 float coinXPos, coinYPos; //Coin location.
 float dangerXPos, dangerYPos; //Coin location.
@@ -277,7 +277,7 @@ public void movingObjects()
     radius = 150; //Spreading out the coins.
   }
   
-  for(int i = 0; i < COINSPAWN; i++)
+  for(int i = 0; i < DANGERSPWAN; i++)
   {
     float location = dangerYPos + sin(thetaDanger) * radiusDanger;
     
@@ -292,11 +292,13 @@ public void displayObjects()
 {
   for(int i = 0; i < COINSPAWN; i++)
   {
+    fill(255,255,0);
     coins[i].update();
   }
   
-  for(int i = 0; i < COINSPAWN; i++)
+  for(int i = 0; i < DANGERSPWAN; i++)
   {
+    fill(255,0,0);
     danger[i].update();
   }
 }
