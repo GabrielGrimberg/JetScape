@@ -15,7 +15,7 @@ public class Danger extends MainObjects
     ellipse(xPos,yPos,w,h); //Outter Coin.
     fill(0);
     
-    ellipse(xPos,yPos,w / 2, h / 2); //Inner coin.
+    ellipse(xPos,yPos,w / 3, h / 3); //Inner coin.
     stroke(255);
     fill(255,0,0);
     

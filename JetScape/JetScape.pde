@@ -296,7 +296,7 @@ public void movingObjects()
   {
     float location = dangerYPos + sin(thetaDanger) * radiusDanger;
     
-    danger[i] = new Danger(width + 500 * i, location, 60, 60); //Coins instances.
+    danger[i] = new Danger(width + 500 * i, location, 80, 80); //Coins instances.
     thetaDanger = thetaDanger + random(0f,500f); //Choosing a random location.
     radiusDanger = 150; //Spreading out the dangers
   }
@@ -313,7 +313,7 @@ public void displayObjects()
   
   for(int i = 0; i < DANGERSPWAN; i++)
   {
-    fill(255,0,0);
+    fill(random(200,255),0,0);
     danger[i].update();
   }
 }
