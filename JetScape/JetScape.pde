@@ -59,7 +59,7 @@ MovingBackground moveBk = new MovingBackground();
 Danger[] danger = new Danger[DANGERSPWAN];
 
 /* Text Objects. */
-MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
+MovingLetters[] Word = new MovingLetters[4]; //<- How many enums.
 
 /* Keys Pressed. */
 boolean[] keys = new boolean[PRESSED];
@@ -206,8 +206,8 @@ public void MainMenu()
   
   if(frameCount / 30 % 2 == 0)
   {
-    stroke(255);
-    textDisplay("JetScape", TextForm.Biggest, 450, 75);
+    stroke(255,255,0);
+    textDisplay("JetScape", TextForm.VBig, 400, 75);
   }
   
   //Start button with the start text.
@@ -350,15 +350,17 @@ void endState()
   gameMusic.pause(); //Pausing the music.
   background(0);
   
-  stroke(255);
-  textDisplay("Oh no, You died!", TextForm.Biggest, 350, 100);
+  stroke(random(0,255), random(0,255), random(0,255), random(0,255) );
+  textDisplay("Game Over", TextForm.Biggest, 435, 50);
   
-  stroke(255);
-  textDisplay("Your score: " + score, TextForm.Biggest, 375, 300);
+  stroke(255,255,0);
+  textDisplay("Score - " + score, TextForm.Big, 475, 200);
+  textDisplay("Level Reached - " + level, TextForm.Big, 375, 300);
+  textDisplay("Time Elapsed - " + (int)timeAccumulator + " seconds", TextForm.Big, 300, 400);
     
   if(frameCount / 30 % 2 == 0)
   {
-    stroke(255);
+    stroke(255,0,255);
     textDisplay("Press UP to go to menu", TextForm.Biggest, 200, 500);
   }
   

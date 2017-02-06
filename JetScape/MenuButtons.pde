@@ -28,12 +28,12 @@ public class MenuButtons
     
     if(mscbtnStr == false) 
     { 
-      fill(0,255,0);
+      fill(255,255,0);
     } 
   } 
   else 
   {
-    stroke(153);
+    stroke(255,255,0);
     fill(153);
     
     msbtnStr = false;
@@ -58,12 +58,12 @@ public class MenuButtons
     
     if(mscbtnEnd == false) 
     { 
-      fill(0,255,0);
+      fill(255,255,0);
     } 
   } 
   else 
   {
-    stroke(153);
+    stroke(255,255,0);
     fill(153);
     
     msbtnEnd = false;
