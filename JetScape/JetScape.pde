@@ -15,6 +15,7 @@
 //Amount of coins to spawn.
 int COINSPAWN = 100;
 int DANGERSPWAN = 100;
+int PRESSED = 5000;
 /*
   - Imports -
 */
@@ -54,7 +55,7 @@ Coin[] coins = new Coin[COINSPAWN];
 /* Background Object */
 MovingBackground moveBk = new MovingBackground();
 
-Danger[] danger = new Danger[COINSPAWN];
+Danger[] danger = new Danger[DANGERSPWAN];
 
 /* Speed Control Object */
 SpeedControl sControl = new SpeedControl();
@@ -63,7 +64,7 @@ SpeedControl sControl = new SpeedControl();
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
 /* Keys Pressed. */
-boolean[] keys = new boolean[COINSPAWN];
+boolean[] keys = new boolean[PRESSED];
 
 /*
   - Images -
@@ -111,6 +112,9 @@ float timeDelta = 0;
 float timeAccumulator = 0;
 int last = 0;
 
+/* Music Stop */
+int phaseCheck = 0;
+
 public void setup()
 {
   //Size of screen.
@@ -157,9 +161,8 @@ public void keyPressed()
 {
   keys[keyCode] = true;
   
-  if(key == ' ' && gameState == 2)
+  if(keyCode == UP && gameState == 2)
   {
-    gameState = 0;
     reset();
   }
   
@@ -217,6 +220,26 @@ public void MainMenu()
   
 }
 
+public void startClicked()
+{
+  if(msbtnStr == true) //If true
+  {
+    if(phaseCheck == 0) //Stops the button music playing.
+    {
+      mscbtnStr = true; //Set variable to true
+      fill(255, 255, 255); //To highlight the box.
+      playSound(bClick);
+      playSound(gameMusic);
+      gameState = 1;
+      phaseCheck = 1;
+    }
+  } 
+  else 
+  {
+    msbtnStr = false; //If not, set to false.
+  }
+}
+
 public void quitClicked()
 {
   if(msbtnEnd == true) //If true
@@ -228,22 +251,6 @@ public void quitClicked()
   else 
   {
     mscbtnEnd = false; //If not, set to false.
-  }
-}
-
-public void startClicked()
-{
-  if(msbtnStr == true) //If true
-  {
-    mscbtnStr = true; //Set variable to true
-    fill(255, 255, 255); //To highlight the box.
-    playSound(bClick);
-    playSound(gameMusic);
-    gameState = 1;
-  } 
-  else 
-  {
-    msbtnStr = false; //If not, set to false.
   }
 }
 
@@ -343,14 +350,19 @@ void endState()
   if(frameCount / 30 % 2 == 0)
   {
     stroke(255);
-    textDisplay("Press SPACE to go to menu", TextForm.Biggest, 150, 500);
+    textDisplay("Press UP to go to menu", TextForm.Biggest, 200, 500);
   }
   
 }
 
 void reset()
 {
+  gameState = 0;
   score = 0;
+  speedBg = 5;
+  speedc = 5;
+  speedDanger = 5;
+  phaseCheck = 0;
 }
   
 public void draw()

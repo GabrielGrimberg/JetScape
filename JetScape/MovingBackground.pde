@@ -1,7 +1,7 @@
-public class MovingBackground
+private class MovingBackground
 {
   
-  public void mvBack()
+  private void mvBack()
   {
     //Background scrolling.
     for(int i = 0; i < repeatBg.length; i++)
