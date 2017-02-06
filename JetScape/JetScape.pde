@@ -102,6 +102,11 @@ float speedBg = 4; //Background speed.
 float speedc = 4; //Coin Speed.
 float speedDanger = 4;
 
+/* Background Speed Change */
+float timeDelta = 0;
+float timeAccumulator = 0;
+int last = 0;
+
 //Score counter
 int score;
 
@@ -309,7 +314,11 @@ public void displayObjects()
 public void scoreDisplay()
 {
   stroke(255);
-  textDisplay("Score: " + score, TextForm.Normal, 10, 10);
+  textDisplay("Score - " + score, TextForm.Normal, 10, 15);
+  
+  stroke(255);
+  textDisplay("Time - " + (int)timeAccumulator + " seconds", TextForm.Normal, 500, 15);
+  
 }
 
 /* Method to load up images */
@@ -349,6 +358,18 @@ void endState()
   
 }
 
+public void timerDisplay()
+{
+  int now = millis();
+  timeDelta = (now - last) / 1000.0f;  
+  last = now;
+  
+  timeAccumulator += timeDelta;
+    
+    //println(timeDelta);
+    //println(timeAccumulator);
+}
+
 void reset()
 {
   gameState = 0;
@@ -357,6 +378,7 @@ void reset()
   speedc = 3;
   speedDanger = 3;
   phaseCheck = 0;
+  timeAccumulator = 0;
 }
   
 public void draw()
@@ -374,6 +396,7 @@ public void draw()
       jetflame.update();
       displayObjects();
       scoreDisplay();
+      timerDisplay();
       break;
      case 2:
        endState();
