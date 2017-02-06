@@ -29,6 +29,7 @@ Minim minim;
 AudioPlayer bClick;    // Button Click.
 AudioPlayer cCollect;  // Coin Collecting.
 AudioPlayer gameMusic; // In game Music.
+AudioPlayer dead;      // When dying.
 
 /* 
   - Array Lists -
@@ -140,6 +141,7 @@ public void setup()
   bClick = minim.loadFile("Click.mp3");
   gameMusic = minim.loadFile("gameMusic.wav");
   cCollect = minim.loadFile("coin.wav");
+  dead = minim.loadFile("dead.wav");
   
   loadImages();
   

@@ -34,6 +34,8 @@ public class Danger extends MainObjects
       this.yPos = 0;
       this.w = 0;
       
+      playSound(dead);
+      
       //Incrementing the score.
       gameState = 2;
     }
