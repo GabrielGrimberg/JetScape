@@ -110,6 +110,9 @@ int last = 0;
 //Score counter
 int score;
 
+//Level counter
+int level = 1;
+
 /* Music Stop */
 int phaseCheck = 0;
 
@@ -319,6 +322,9 @@ public void scoreDisplay()
   stroke(255);
   textDisplay("Time - " + (int)timeAccumulator + " seconds", TextForm.Normal, 500, 15);
   
+  stroke(255);
+  textDisplay("Level - " + level, TextForm.Normal, 1000, 15);
+  
 }
 
 /* Method to load up images */
@@ -365,9 +371,20 @@ public void timerDisplay()
   last = now;
   
   timeAccumulator += timeDelta;
-    
-    //println(timeDelta);
-    //println(timeAccumulator);
+  
+  if(timeAccumulator >= 30 && timeAccumulator < 31)
+  {
+    level = 2;
+  }
+  if(timeAccumulator >= 100 && timeAccumulator < 101)
+  {
+    level = 3;
+  }
+  if(timeAccumulator >= 250)
+  {
+    level = 4;
+  } 
+  
 }
 
 void reset()
@@ -379,6 +396,7 @@ void reset()
   speedDanger = 3;
   phaseCheck = 0;
   timeAccumulator = 0;
+  level = 1;
 }
   
 public void draw()
