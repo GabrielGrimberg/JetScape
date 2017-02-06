@@ -141,10 +141,12 @@ public void setup()
   bClick = minim.loadFile("Click.mp3");
   gameMusic = minim.loadFile("gameMusic.wav");
   cCollect = minim.loadFile("coin.wav");
-  dead = minim.loadFile("dead.wav");
+  dead = minim.loadFile("dead.mp3");
   
+  //Loading the images.
   loadImages();
   
+  //Loading the danger and coins objects.
   movingObjects();
 }
 
@@ -165,6 +167,7 @@ public void keyPressed()
 {
   keys[keyCode] = true;
   
+  //Up arrow to go to main menu when dead.
   if(keyCode == UP && gameState == 2)
   {
     reset();
@@ -393,14 +396,14 @@ public void timerDisplay()
 
 void reset()
 {
-  gameState = 0;
-  score = 0;
-  speedBg = 3;
-  speedc = 3;
-  speedDanger = 3;
-  phaseCheck = 0;
-  timeAccumulator = 0;
-  level = 1;
+  gameState = 0; //Reset gamestate.
+  score = 0; //Reset score.
+  speedBg = 3; //Reset background speed.
+  speedc = 3; //Reset coin speed.
+  speedDanger = 3; //Reset Danger speed.
+  phaseCheck = 0; //Reset Music out of bounds checker.
+  timeAccumulator = 0; //Reset timer.
+  level = 1; //Reset level.
 }
   
 public void draw()
