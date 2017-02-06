@@ -12,6 +12,8 @@ private class MovingBackground
       if(repeatBg[i] + width <= 0)
       {
         repeatBg[i] = width;
+        speedc++;
+        speedDanger++;
       }  
     }
     

@@ -57,9 +57,6 @@ MovingBackground moveBk = new MovingBackground();
 
 Danger[] danger = new Danger[DANGERSPWAN];
 
-/* Speed Control Object */
-SpeedControl sControl = new SpeedControl();
-
 /* Text Objects. */
 MovingLetters[] Word = new MovingLetters[3]; //<- How many enums.
 
@@ -99,18 +96,13 @@ float gravity = 5;
 int gameState = 0;
 
 //Speed variables.
-int speed = 3;
-int speedBg = 4; //Background speed.
-int speedc = 4; //Coin Speed.
-int speedDanger = 4;
+float speed = 3;
+float speedBg = 4; //Background speed.
+float speedc = 4; //Coin Speed.
+float speedDanger = 4;
 
 //Score counter
 int score;
-
-/* Background Speed Change */
-float timeDelta = 0;
-float timeAccumulator = 0;
-int last = 0;
 
 /* Music Stop */
 int phaseCheck = 0;
@@ -360,9 +352,9 @@ void reset()
 {
   gameState = 0;
   score = 0;
-  speedBg = 5;
-  speedc = 5;
-  speedDanger = 5;
+  speedBg = 3;
+  speedc = 3;
+  speedDanger = 3;
   phaseCheck = 0;
 }
   
@@ -381,7 +373,6 @@ public void draw()
       jetflame.update();
       displayObjects();
       scoreDisplay();
-      //sControl.cSpeedChange();
       break;
      case 2:
        endState();
