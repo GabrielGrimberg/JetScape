@@ -1,4 +1,4 @@
-# Making a Game Assingment
+# JetScape
 A repository for my second OOP assignment in second year.
 
 #### Brief
@@ -8,10 +8,10 @@ A repository for my second OOP assignment in second year.
 - I've thought about this for a while and I started with a mini football game although I've gone for something which I think would be better to play and more addictive. I'll be looking to make a similar game to Jetpack Joyride. I have played this game years ago and I'd love to be able to make a similar game to it.
 
 #### Objective
-- Scene 1: Include a start menu that has buttons for start and quit.
-- Scene 2: Gameplay: Endless runnining collecting coins and avoiding death.
-- Scene 3: If player dies then show score with option to end game or play again.
-- Scene 4: Back to the start menu if pressed when player dies.
+- Startup: Include a start menu that has buttons for start, leaderboard and quit.
+- Gameplay: Endless runnining collecting coins and avoiding death.
+- Death Screen: If player dies then show score and time with an option to return to the main menu.
+- Return: Back to the start menu if pressed when player dies.
 
 #### Testing
 - To be added...
