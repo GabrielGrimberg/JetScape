@@ -11,9 +11,10 @@ private class MovingBackground
       
       if(repeatBg[i] + width <= 0)
       {
-        repeatBg[i] = width;
-        speedc++;
-        speedDanger++;
+        repeatBg[i] = width -= SPEEDCHANGE;
+        speedBg += SPEEDCHANGE;
+        speedc += SPEEDCHANGE; //Changing the speed for coins.
+        speedDanger += SPEEDCHANGE; //Changing the speed for Danger.
       }  
     }
     

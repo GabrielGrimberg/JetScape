@@ -16,6 +16,7 @@
 int COINSPAWN = 500;
 int DANGERSPWAN = 500;
 int PRESSED = 5000;
+float SPEEDCHANGE = 0.3;
 /*
   - Imports -
 */
