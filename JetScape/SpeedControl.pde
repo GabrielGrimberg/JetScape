@@ -14,21 +14,21 @@ class SpeedControl
     
     if (timeAccumulator >= 5 && timeAccumulator < 6)
     {
+      speedBg = 6;
+      speedc = 6;
+      speedDanger = 6;
+    }
+    if (timeAccumulator >= 10 && timeAccumulator < 11)
+    {
       speedBg = 7;
       speedc = 7;
       speedDanger = 7;
     }
-    if (timeAccumulator >= 10 && timeAccumulator < 11)
-    {
-      speedBg = 10;
-      speedc = 10;
-      speedDanger = 10;
-    }
     if (timeAccumulator >= 15)
     {
-      speedBg = 20;
-      speedc = 20;
-      speedDanger = 20;
+      speedBg = 8;
+      speedc = 8;
+      speedDanger = 8;
     } 
     
   }

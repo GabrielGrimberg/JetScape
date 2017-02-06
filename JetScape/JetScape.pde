@@ -13,8 +13,8 @@
   - #DEFINE -
 */
 //Amount of coins to spawn.
-int COINSPAWN = 100;
-int DANGERSPWAN = 100;
+int COINSPAWN = 500;
+int DANGERSPWAN = 500;
 int PRESSED = 5000;
 /*
   - Imports -
@@ -100,9 +100,9 @@ int gameState = 0;
 
 //Speed variables.
 int speed = 3;
-int speedBg = 5; //Background speed.
-int speedc = 5; //Coin Speed.
-int speedDanger = 5;
+int speedBg = 4; //Background speed.
+int speedc = 4; //Coin Speed.
+int speedDanger = 4;
 
 //Score counter
 int score;
@@ -118,9 +118,10 @@ int phaseCheck = 0;
 public void setup()
 {
   //Size of screen.
-  size(1200,600);
+  size(1200,600,P2D);
   
-  frameRate(60);
+  //frameRate(120);
+  
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
@@ -386,5 +387,12 @@ public void draw()
        endState();
        break;
   }
+  
+  /* Debugging
+  if (frameCount % 60 == 0) 
+  {
+    println(frameRate);
+  }
+  */
   
 }

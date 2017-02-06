@@ -33,7 +33,7 @@ public class Danger extends MainObjects
       this.xPos = 0;
       this.yPos = 0;
       this.w = 0;
-
+      
       //Incrementing the score.
       gameState = 2;
     }
