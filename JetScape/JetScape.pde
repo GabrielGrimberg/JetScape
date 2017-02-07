@@ -17,6 +17,7 @@ int COINSPAWN = 500;
 int DANGERSPWAN = 500;
 int PRESSED = 5000;
 float SPEEDCHANGE = 0.3;
+int CENTRED = -1;
 /*
   - Imports -
 */
@@ -89,6 +90,9 @@ boolean mscbtnStr = false; //Variable to highlight if box is pressed.
 boolean msbtnEnd = false; //Variable to check if the mouse is on the box.
 boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
 
+boolean msbtnH = false; //Variable to check if the mouse is on the box.
+boolean mscbtnH = false; //Variable to highlight if box is pressed.
+
 //Variables for out of bounds (for player).
 float blockWidth, blockHeight, blockXPos, blockYPos;
 
@@ -156,6 +160,7 @@ public void mousePressed()
 {
   quitClicked();
   startClicked();
+  hClicked();
 }
 
 public void mouseReleased() 
@@ -163,6 +168,7 @@ public void mouseReleased()
   //If mouse released set it back to false.
   mscbtnStr = false;
   mscbtnEnd = false; 
+  mscbtnH = false;
 }
 
 public void keyPressed()
@@ -170,7 +176,7 @@ public void keyPressed()
   keys[keyCode] = true;
   
   //Up arrow to go to main menu when dead.
-  if(keyCode == UP && gameState == 2)
+  if(keyCode == UP && gameState == 2 || gameState == 3)
   {
     reset();
   }
@@ -193,6 +199,11 @@ public boolean keyCheck(int x)
 
 public void textDisplay(String text, TextForm size, int x, int y)
 {
+  
+  if (x == CENTRED)
+  {
+    x = (width / 2) - (int) (size.Pos * (float) text.length() / 2.5f);
+  }
   Word[size.Pos].text(text, x, y);  
 }
 
@@ -228,7 +239,7 @@ public void MainMenu()
   textDisplay("Quit", TextForm.Big, 560, 430);
   
   //Help button with the help text
-  Help.EndButton();
+  Help.HelpButton();
   stroke(0);
   textDisplay("Help", TextForm.Big, 190, 330);
   
@@ -267,6 +278,26 @@ public void quitClicked()
     mscbtnEnd = false; //If not, set to false.
   }
 }
+
+public void hClicked()
+{
+  if(msbtnH == true) //If true
+  {     
+    mscbtnH = true; //Set variable to true
+    fill(255, 255, 255); //To highlight the box.
+    
+    gameState = 3;
+    
+    String lines[] = loadStrings("help.txt");
+    stroke(255);
+    textDisplay(lines[0], TextForm.Big, CENTRED, 200);
+  } 
+  else 
+  {
+    mscbtnH = false; //If not, set to false.
+  }
+}
+
 
 /* Method to plot the coins */
 public void movingObjects()
@@ -433,6 +464,9 @@ public void draw()
      case 2:
        endState();
        break;
+     case 3:
+       clear();
+       hClicked();
   }
   
   /* Debugging

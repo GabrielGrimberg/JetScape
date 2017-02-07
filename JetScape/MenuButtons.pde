@@ -73,4 +73,34 @@ public class MenuButtons
   rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
   fill(0);
   }
+  
+  public void HelpButton()
+  {
+    rectMode(RADIUS);
+    
+    if(mouseX > menuXPos - boxSize &&  //If statement to check
+       mouseX < menuXPos + boxSize &&  //If the mouse is anywhere
+       mouseY > menuYPos - boxSize &&  //near the box.
+       mouseY < menuYPos + boxSize)       
+       
+    {
+      msbtnH = true; //Set true, continue to mousePressed()
+    
+    if(mscbtnH == false) 
+    { 
+      fill(255,255,0);
+    } 
+  } 
+  else 
+  {
+    stroke(255,255,0);
+    fill(153);
+    
+    msbtnH = false;
+  }
+  
+  //Drawing the box.
+  rect(menuXPos, menuYPos, boxSize + 100, boxSize, boxCurve);
+  fill(0);
+  }
 }
