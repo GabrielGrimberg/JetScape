@@ -43,6 +43,7 @@ ArrayList<MainObjects> mainObjects = new ArrayList<MainObjects>();
 MenuButtons StartGame; //Button to start game.
 MenuButtons EndGame; //Button to end game.
 MenuButtons Help; //Button to display intructions.
+MenuButtons HighScore; //Button to display highscore.
 
 /*
   - New Objects -
@@ -93,6 +94,9 @@ boolean mscbtnEnd = false; //Variable to highlight if box is pressed.
 boolean msbtnH = false; //Variable to check if the mouse is on the box.
 boolean mscbtnH = false; //Variable to highlight if box is pressed.
 
+boolean msbtnHigh = false; //Variable to check if the mouse is on the box.
+boolean mscbtnHigh = false; //Variable to highlight if box is pressed.
+
 //Variables for out of bounds (for player).
 float blockWidth, blockHeight, blockXPos, blockYPos;
 
@@ -133,6 +137,7 @@ public void setup()
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
   Help = new MenuButtons(height / 2.5 , 350, 50,5);
+  HighScore = new MenuButtons(width / 1.25, 350, 50, 5);
   
   mainObjects.add(player);
   
@@ -169,6 +174,7 @@ public void mouseReleased()
   mscbtnStr = false;
   mscbtnEnd = false; 
   mscbtnH = false;
+  mscbtnHigh = false;
 }
 
 public void keyPressed()
@@ -242,6 +248,11 @@ public void MainMenu()
   Help.HelpButton();
   stroke(0);
   textDisplay("Help", TextForm.Big, 190, 330);
+  
+  //Highscore button to display the highest score.
+  HighScore.HighscoreButton();
+  stroke(0);
+  textDisplay("Highscore", TextForm.Big, 870, 330);
   
 }
 
