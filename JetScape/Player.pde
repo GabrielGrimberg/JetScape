@@ -19,11 +19,13 @@ public class Player extends MainObjects
     noStroke();
     fill(0,0,255);
     
+    //Making sure the player does not go off the bottom of the screen.
     if(yPos + h <= height - blockHeight * 0.5f)
     {
       yPos = yPos + gravity;
     }
     
+    //Making sure the player does not go off the top of the screen.
     if(keyCheck(space) && yPos >= 70)
     {
       yPos = yPos - playerSpeed * 3f; //How fast the player goes up.

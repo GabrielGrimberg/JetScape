@@ -70,10 +70,10 @@ boolean[] keys = new boolean[PRESSED];
 /*
   - Images -
 */
-//Player sprite.
+//Player Image.
 PImage playerChar;
 
-//Jetpack sprite.
+//Jetpack Image
 PImage jetpackImg;
 
 //Repeating background.
@@ -106,7 +106,6 @@ float gravity = 5;
 int gameState = 0;
 
 //Speed variables.
-float speed = 3;
 float speedBg = 4; //Background speed.
 float speedc = 4; //Coin Speed.
 float speedDanger = 4;
@@ -116,7 +115,6 @@ int score;
 int highScore = 0;
 int recentScore = 0;
 
-
 //Level counter
 int level = 1;
 
@@ -125,11 +123,8 @@ int phaseCheck = 0;
 
 public void setup()
 {
-  //Size of screen.
-  size(1200,600,P2D);
-  
-  //frameRate(120);
-  
+  size(1200,600,P2D); //Size of screen.
+
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
@@ -249,7 +244,7 @@ public void hClicked()
     String lines[] = loadStrings("help.txt"); //Loading up the file.
     stroke(255); //White outline for the words.
     
-    //Not in a loop duo to position problems.
+    //Not in a loop due to position problems.
     textDisplay(lines[0], TextForm.Big, 375, 50);
     textDisplay(lines[1], TextForm.Normal, 475, 150);
     textDisplay(lines[2], TextForm.Normal, 350, 200);
@@ -401,6 +396,7 @@ public void backtoMain()
   } 
 }
 
+/* Method to calculate the highscore */
 public void highScore()
 {
   if(gameState == 2)

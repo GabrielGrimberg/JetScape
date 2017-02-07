@@ -1,9 +1,9 @@
 public void mousePressed()
 {
-  quitClicked();
-  startClicked();
-  hClicked();
-  highClicked();
+  quitClicked(); //Quit button.
+  startClicked(); //Start button.
+  hClicked(); //Help button.
+  highClicked(); //Highscore button
 }
 
 public void mouseReleased() 
