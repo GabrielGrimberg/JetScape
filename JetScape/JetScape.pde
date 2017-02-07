@@ -429,8 +429,8 @@ void endState()
   textDisplay("Game Over", TextForm.Biggest, 435, 50);
   
   stroke(255,255,0);
-  textDisplay("Score - " + score, TextForm.Big, 475, 175);
-  textDisplay("Level Reached - " + level, TextForm.Big, 375, 275);
+  textDisplay("Score - " + score, TextForm.Big, 475, 200);
+  textDisplay("Level Reached - " + level, TextForm.Big, 375, 350);
   
   backtoMain();
   
