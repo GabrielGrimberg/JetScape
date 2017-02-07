@@ -17,7 +17,6 @@ int COINSPAWN = 500;
 int DANGERSPWAN = 500;
 int PRESSED = 5000;
 float SPEEDCHANGE = 0.3;
-int CENTRED = -1;
 /*
   - Imports -
 */
@@ -117,8 +116,9 @@ float timeDelta = 0;
 float timeAccumulator = 0;
 int last = 0;
 
-//Score counter
+//Scores
 int score;
+int highScore = 0;
 
 //Level counter
 int level = 1;
@@ -166,6 +166,7 @@ public void mousePressed()
   quitClicked();
   startClicked();
   hClicked();
+  highClicked();
 }
 
 public void mouseReleased() 
@@ -182,7 +183,7 @@ public void keyPressed()
   keys[keyCode] = true;
   
   //Up arrow to go to main menu when dead.
-  if(keyCode == UP && gameState == 2 || gameState == 3)
+  if(keyCode == UP && gameState == 2 || gameState == 3 || gameState == 4)
   {
     reset();
     cursor();
@@ -206,11 +207,6 @@ public boolean keyCheck(int x)
 
 public void textDisplay(String text, TextForm size, int x, int y)
 {
-  
-  if (x == CENTRED)
-  {
-    x = (width / 2) - (int) (size.Pos * (float) text.length() / 2.5f);
-  }
   Word[size.Pos].text(text, x, y);  
 }
 
@@ -316,6 +312,27 @@ public void hClicked()
   }
 }
 
+public void highClicked()
+{
+  if(msbtnHigh == true) //If true
+  { 
+    noCursor();
+    gameState = 4; //Changing gamestate.
+    fill(255,255,0); //Yellow colour.
+    
+    stroke(255);
+    textDisplay("Highest Score", TextForm.VBig, 300, 50);
+    
+    stroke(255);
+    textDisplay("Rank 1 - " + highScore, TextForm.Big, 300, 200);
+    
+    
+  } 
+  else 
+  {
+    mscbtnHigh = false; //If not, set to false.
+  }
+}
 
 /* Method to plot the coins */
 public void movingObjects()
@@ -411,6 +428,8 @@ void endState()
   gameMusic.pause(); //Pausing the music.
   background(0);
   
+  highScore();
+  
   stroke(random(0,255), random(0,255), random(0,255), random(0,255) );
   textDisplay("Game Over", TextForm.Biggest, 435, 50);
   
@@ -455,7 +474,20 @@ public void timerDisplay()
   
 }
 
-void reset()
+public void highScore()
+{
+  if(gameState == 2)
+  {
+    if(score > highScore)
+    {
+      highScore = score;
+    }
+    
+  }
+  
+}
+
+public void reset()
 {
   gameState = 0; //Reset gamestate.
   score = 0; //Reset score.
@@ -490,6 +522,11 @@ public void draw()
      case 3:
        clear();
        hClicked();
+       break;
+     case 4: 
+       clear();
+       highClicked();
+       break;
   }
   
   /* Debugging
