@@ -185,6 +185,7 @@ public void keyPressed()
   if(keyCode == UP && gameState == 2 || gameState == 3)
   {
     reset();
+    cursor();
   }
   
 }
@@ -291,14 +292,13 @@ public void quitClicked()
 public void hClicked()
 {
   if(msbtnH == true) //If true
-  {     
-    mscbtnH = true; //Set variable to true
-    fill(255,255,0);
+  { 
+    noCursor();
+    gameState = 3; //Changing gamestate.
+    fill(255,255,0); //Yellow colour.
     
-    gameState = 3;
-    
-    String lines[] = loadStrings("help.txt");
-    stroke(255);
+    String lines[] = loadStrings("help.txt"); //Loading up the file.
+    stroke(255); //White outline for the words.
     
     //Not in a loop duo to position problems.
     textDisplay(lines[0], TextForm.Big, 375, 50);
