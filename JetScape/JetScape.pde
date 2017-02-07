@@ -252,7 +252,6 @@ public void startClicked()
     if(phaseCheck == 0) //Stops the button music playing.
     {
       mscbtnStr = true; //Set variable to true
-      fill(255, 255, 255); //To highlight the box.
       playSound(bClick);
       playSound(gameMusic);
       gameState = 1;
@@ -270,7 +269,6 @@ public void quitClicked()
   if(msbtnEnd == true) //If true
   {     
     mscbtnEnd = true; //Set variable to true
-    fill(255, 255, 255); //To highlight the box.
     exit(); //Terminating the program
   } 
   else 
@@ -284,13 +282,22 @@ public void hClicked()
   if(msbtnH == true) //If true
   {     
     mscbtnH = true; //Set variable to true
-    fill(255, 255, 255); //To highlight the box.
+    fill(255,255,0);
     
     gameState = 3;
     
     String lines[] = loadStrings("help.txt");
     stroke(255);
-    textDisplay(lines[0], TextForm.Big, CENTRED, 200);
+    
+    //Not in a loop duo to position problems.
+    textDisplay(lines[0], TextForm.Big, 375, 50);
+    textDisplay(lines[1], TextForm.Normal, 475, 150);
+    textDisplay(lines[2], TextForm.Normal, 350, 200);
+    textDisplay(lines[3], TextForm.Normal, 350, 250);
+    textDisplay(lines[4], TextForm.Normal, 250, 300);
+    textDisplay(lines[5], TextForm.Normal, 275, 350);
+    textDisplay(lines[6], TextForm.Normal, 275, 400);
+    backtoMain();
   } 
   else 
   {
@@ -400,13 +407,18 @@ void endState()
   textDisplay("Score - " + score, TextForm.Big, 475, 200);
   textDisplay("Level Reached - " + level, TextForm.Big, 375, 300);
   textDisplay("Time Elapsed - " + (int)timeAccumulator + " seconds", TextForm.Big, 300, 400);
-    
+  
+  backtoMain();
+  
+}
+
+public void backtoMain()
+{
   if(frameCount / 30 % 2 == 0)
   {
     stroke(255,0,255);
     textDisplay("Press UP to go to menu", TextForm.Biggest, 200, 500);
-  }
-  
+  } 
 }
 
 public void timerDisplay()
@@ -428,7 +440,7 @@ public void timerDisplay()
   if(timeAccumulator >= 250)
   {
     level = 4;
-  } 
+  }
   
 }
 

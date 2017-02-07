@@ -1,1 +1,7 @@
-Help Text
+Welcome to JetScape
+Press START to play
+Use the SPACE key to move the character
+The UP arrow is used to go back to menu
+The aim of the game is to collect as many coins as you can
+Also to avoid the dangers while collecting the coins
+You can beat this game up to you to figure out how!
