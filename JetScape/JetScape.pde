@@ -41,6 +41,7 @@ ArrayList<MainObjects> mainObjects = new ArrayList<MainObjects>();
 /*Creating Objects for the Menu. */
 MenuButtons StartGame; //Button to start game.
 MenuButtons EndGame; //Button to end game.
+MenuButtons Help; //Button to display intructions.
 
 /*
   - New Objects -
@@ -127,6 +128,7 @@ public void setup()
   /* Creating new Objects for MenuButtons */
   StartGame = new MenuButtons(width / 2, 250, 50, 5);
   EndGame = new MenuButtons(width / 2, 450, 50, 5);
+  Help = new MenuButtons(height / 2.5 , 350, 50,5);
   
   mainObjects.add(player);
   
@@ -224,6 +226,11 @@ public void MainMenu()
   EndGame.EndButton();
   stroke(0);
   textDisplay("Quit", TextForm.Big, 560, 430);
+  
+  //Help button with the help text
+  Help.EndButton();
+  stroke(0);
+  textDisplay("Help", TextForm.Big, 190, 330);
   
 }
 
