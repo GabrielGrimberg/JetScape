@@ -38,7 +38,9 @@ A repository for my second OOP assignment in second year.
 - Cool artwork.
 
 #### Video(s)
-- To be added...
+
+#### Normal Video
+[![Video](http://runescaperaids.com/wp-content/uploads/2015/07/Yakumaru-Raids_concept_art.png)](https://youtu.be/MsKHBgsILSM)
 
 #### Credits
 
