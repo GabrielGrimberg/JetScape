@@ -5,7 +5,7 @@
 *  Type: Assignment 2.                   *
 *  Language: Java (Processing).          *
 *  Start Date: 9th of December 2016.     *
-*  Due Date: 7th of February 2017.       *
+*  Due Date: 8th of February 2017.       *
 *                                        *
 ******************************************/
 
@@ -111,7 +111,7 @@ float speedBg = 4; //Background speed.
 float speedc = 4; //Coin Speed.
 float speedDanger = 4;
 
-/* Background Speed Change */
+/* Track of time */
 float timeDelta = 0;
 float timeAccumulator = 0;
 int last = 0;
@@ -119,6 +119,8 @@ int last = 0;
 //Scores
 int score;
 int highScore = 0;
+int recentScore = 0;
+
 
 //Level counter
 int level = 1;
@@ -277,6 +279,7 @@ public void quitClicked()
   if(msbtnEnd == true) //If true
   {     
     mscbtnEnd = true; //Set variable to true
+    playSound(bClick);
     exit(); //Terminating the program
   } 
   else 
@@ -290,6 +293,7 @@ public void hClicked()
   if(msbtnH == true) //If true
   { 
     noCursor();
+    playSound(bClick);
     gameState = 3; //Changing gamestate.
     fill(255,255,0); //Yellow colour.
     
@@ -317,16 +321,20 @@ public void highClicked()
   if(msbtnHigh == true) //If true
   { 
     noCursor();
+    playSound(bClick);
     gameState = 4; //Changing gamestate.
     fill(255,255,0); //Yellow colour.
-    
+        
     stroke(255);
-    textDisplay("Highest Score", TextForm.VBig, 300, 50);
+    textDisplay("Highest Score", TextForm.VBig, 290, 50);
     
-    stroke(255);
-    textDisplay("Rank 1 - " + highScore, TextForm.Big, 300, 200);
+    stroke(255,255,0);
+    textDisplay("Top Score - " + highScore, TextForm.Big, 450, 200);
     
-    
+    stroke(255,0,0);
+    textDisplay("Recent Score - " + recentScore, TextForm.Big, 410, 350);
+ 
+    backtoMain();  
   } 
   else 
   {
@@ -481,6 +489,11 @@ public void highScore()
     if(score > highScore)
     {
       highScore = score;
+      return;
+    }
+    else
+    {
+      recentScore = score;
     }
     
   }
@@ -528,12 +541,5 @@ public void draw()
        highClicked();
        break;
   }
-  
-  /* Debugging
-  if (frameCount % 60 == 0) 
-  {
-    println(frameRate);
-  }
-  */
-  
+
 }
