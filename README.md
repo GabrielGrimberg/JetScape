@@ -14,7 +14,7 @@ A repository for my second OOP assignment in second year.
 - Return: Back to the start menu if pressed when player dies.
 
 #### Testing
-- Once the stable release was made, I heavily tested this game on a Mac and Windows platforms.
+- Once the stable release was made, I heavily tested this game on a Mac and Windows platform.
 - This game was tested on a MacBook, iMac, and a Dell PC.
 - Minim library used instead of SoundFile library to make sure that this runs on Windows.
 - The program runs as it should, the FPS stays high and does not have any spike lags.
@@ -46,4 +46,4 @@ A repository for my second OOP assignment in second year.
 - Made by me.
 
 ##### Audio
-- Halfbrick Studios
+- Game Music - [Jetpack Joyride Music](https://halfbrick.com) by Halfbrick Studios
