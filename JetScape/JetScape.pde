@@ -111,11 +111,6 @@ float speedBg = 4; //Background speed.
 float speedc = 4; //Coin Speed.
 float speedDanger = 4;
 
-/* Track of time */
-float timeDelta = 0;
-float timeAccumulator = 0;
-int last = 0;
-
 //Scores
 int score;
 int highScore = 0;
@@ -227,12 +222,10 @@ public void MainMenu()
 {
   background(0);
   
-  if(frameCount / 30 % 2 == 0)
-  {
-    stroke(255,255,0);
-    textDisplay("JetScape", TextForm.VBig, 400, 75);
-  }
-  
+  //Main title for the game.
+  stroke(255,255,0);
+  textDisplay("JetScape", TextForm.VBig, 400, 75);
+
   //Start button with the start text.
   StartGame.StartButton();
   stroke(0);
@@ -356,12 +349,9 @@ public void movingObjects()
   blockWidth = 50; //Limit to where player walks.
   blockHeight = blockWidth;
   blockYPos = height - blockWidth;
-  //blockSpeed = 5;
   
-  //coinXPos = width * 0.5f;
   coinYPos = height * 0.5f;
   
-  //dangerXPos = width * 0.5f;
   dangerYPos = height * 0.5f;
   
   for(int i = 0; i < COINSPAWN; i++)
@@ -404,10 +394,7 @@ public void scoreDisplay()
 {
   stroke(255);
   textDisplay("Score - " + score, TextForm.Normal, 10, 15);
-  
-  stroke(255);
-  textDisplay("Time - " + (int)timeAccumulator + " seconds", TextForm.Normal, 500, 15);
-  
+    
   stroke(255);
   textDisplay("Level - " + level, TextForm.Normal, 1000, 15);
   
@@ -444,7 +431,6 @@ void endState()
   stroke(255,255,0);
   textDisplay("Score - " + score, TextForm.Big, 475, 175);
   textDisplay("Level Reached - " + level, TextForm.Big, 375, 275);
-  textDisplay("Time Elapsed - " + (int)timeAccumulator + " seconds", TextForm.Big, 300, 375);
   
   backtoMain();
   
@@ -457,29 +443,6 @@ public void backtoMain()
     stroke(255,0,255);
     textDisplay("Press UP to go to menu", TextForm.Biggest, 200, 500);
   } 
-}
-
-public void timerDisplay()
-{
-  int now = millis();
-  timeDelta = (now - last) / 1000.0f;  
-  last = now;
-  
-  timeAccumulator += timeDelta;
-  
-  if(timeAccumulator >= 30 && timeAccumulator < 31)
-  {
-    level = 2;
-  }
-  if(timeAccumulator >= 100 && timeAccumulator < 101)
-  {
-    level = 3;
-  }
-  if(timeAccumulator >= 250)
-  {
-    level = 4;
-  }
-  
 }
 
 public void highScore()
@@ -508,7 +471,6 @@ public void reset()
   speedc = 3; //Reset coin speed.
   speedDanger = 3; //Reset Danger speed.
   phaseCheck = 0; //Reset Music out of bounds checker.
-  timeAccumulator = 0; //Reset timer.
   level = 1; //Reset level.
 }
   
@@ -527,7 +489,6 @@ public void draw()
       jetflame.update();
       displayObjects();
       scoreDisplay();
-      timerDisplay();
       break;
      case 2:
        endState();

@@ -15,6 +15,7 @@ private class MovingBackground
         speedBg += SPEEDCHANGE;
         speedc += SPEEDCHANGE; //Changing the speed for coins.
         speedDanger += SPEEDCHANGE; //Changing the speed for Danger.
+        level++;
       }  
     }
     
