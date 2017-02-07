@@ -152,7 +152,7 @@ public void setup()
   minim = new Minim(this);
   
   bClick = minim.loadFile("Click.mp3");
-  gameMusic = minim.loadFile("gameMusic.wav");
+  gameMusic = minim.loadFile("gameMusic.mp3");
   cCollect = minim.loadFile("coin.wav");
   dead = minim.loadFile("dead.mp3");
   
@@ -277,9 +277,9 @@ public void startClicked()
 public void quitClicked()
 {
   if(msbtnEnd == true) //If true
-  {     
-    mscbtnEnd = true; //Set variable to true
+  {
     playSound(bClick);
+    mscbtnEnd = true; //Set variable to true
     exit(); //Terminating the program
   } 
   else 
@@ -291,9 +291,9 @@ public void quitClicked()
 public void hClicked()
 {
   if(msbtnH == true) //If true
-  { 
-    noCursor();
+  {
     playSound(bClick);
+    noCursor();
     gameState = 3; //Changing gamestate.
     fill(255,255,0); //Yellow colour.
     
@@ -320,8 +320,8 @@ public void highClicked()
 {
   if(msbtnHigh == true) //If true
   { 
-    noCursor();
     playSound(bClick);
+    noCursor();
     gameState = 4; //Changing gamestate.
     fill(255,255,0); //Yellow colour.
         
@@ -377,9 +377,9 @@ public void movingObjects()
   {
     float location = dangerYPos + sin(thetaDanger) * radiusDanger;
     
-    danger[i] = new Danger(width + 500 * i, location, 80, 80); //Coins instances.
-    thetaDanger = thetaDanger + random(0f,500f); //Choosing a random location.
-    radiusDanger = 150; //Spreading out the dangers
+    danger[i] = new Danger(width + 300 * i, location, 80, 80); //Coins instances.
+    thetaDanger = thetaDanger + random(0f,600f); //Choosing a random location.
+    radiusDanger = 200; //Spreading out the dangers
   }
 }
 
@@ -442,9 +442,9 @@ void endState()
   textDisplay("Game Over", TextForm.Biggest, 435, 50);
   
   stroke(255,255,0);
-  textDisplay("Score - " + score, TextForm.Big, 475, 200);
-  textDisplay("Level Reached - " + level, TextForm.Big, 375, 300);
-  textDisplay("Time Elapsed - " + (int)timeAccumulator + " seconds", TextForm.Big, 300, 400);
+  textDisplay("Score - " + score, TextForm.Big, 475, 175);
+  textDisplay("Level Reached - " + level, TextForm.Big, 375, 275);
+  textDisplay("Time Elapsed - " + (int)timeAccumulator + " seconds", TextForm.Big, 300, 375);
   
   backtoMain();
   
