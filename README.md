@@ -40,7 +40,7 @@ A repository for my second OOP assignment in second year.
 #### Video(s)
 
 #### Normal Video
-[![Video](http://runescaperaids.com/wp-content/uploads/2015/07/Yakumaru-Raids_concept_art.png)](https://youtu.be/MsKHBgsILSM)
+[![Video](https://github.com/GabrielGrimberg/JetScape/blob/master/Screenshots/Main.png)](https://youtu.be/MsKHBgsILSM)
 
 #### Credits
 
