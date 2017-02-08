@@ -37,15 +37,18 @@ A repository for my second OOP assignment in second year.
 - Awesome sound tracks.
 - Cool artwork.
 
+#### How To Play
+- Instructions are in game and can be viewed by pressing the help button.
+- Although it's simple, you press the start button and use the space button to control the character.
+- When you lose you get a message and you press the up arrow to go back to main.
+- You can view the highest score and recent score by clicking the high score button.
+
 #### Video(s)
 
 #### Normal Video
 [![Video](https://github.com/GabrielGrimberg/JetScape/blob/master/Screenshots/Main.png)](https://youtu.be/MsKHBgsILSM)
 
 #### Credits
-
-##### Images
-- Made by me.
 
 ##### Audio
 - Game Music - [Jetpack Joyride Music](https://halfbrick.com) by Halfbrick Studios
